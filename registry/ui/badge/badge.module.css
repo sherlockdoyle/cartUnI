@@ -1,0 +1,12 @@
+@layer component {
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--c-variant);
+    padding: 0.125rem 0.75rem;
+    font-weight: 900;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    letter-spacing: 0.1em;
+  }
+}

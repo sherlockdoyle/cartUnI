@@ -1,0 +1,92 @@
+@layer component {
+  .trigger {
+    display: contents;
+  }
+
+  .dialog {
+    position: fixed;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 1.5rem, black calc(100% - 1.5rem), transparent 100%);
+    margin: auto;
+    inset: 0;
+    border: none;
+    background: none;
+    padding: 1rem;
+    max-width: 95dvw;
+    max-height: 95dvh;
+    overflow: auto;
+
+    &::backdrop {
+      backdrop-filter: blur(2px);
+      background-color: color-mix(in oklch, var(--c-bg) 75%, transparent);
+    }
+
+    .close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      cursor: pointer;
+      border: none;
+      background: none;
+      width: 2rem;
+      height: 2rem;
+
+      &::before,
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border: 0.15rem solid currentColor;
+        width: 2rem;
+        content: '';
+      }
+
+      &::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+        border-radius: var(--radius);
+      }
+      &::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+        border-radius: var(--radius-alt);
+      }
+    }
+  }
+
+  .popover {
+    position: fixed;
+    position-try-fallbacks: flip-block, flip-inline;
+    margin: 0.5rem;
+    border: none;
+    background: none;
+  }
+
+  .tooltipWrapper {
+    display: inline-block;
+    position: relative;
+
+    .content {
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      transform: translate(-50%, 100%);
+      visibility: hidden;
+      opacity: 0;
+      background-color: var(--c-text);
+      padding: 0.375rem 0.75rem;
+      pointer-events: none;
+      color: var(--c-bg);
+      font-weight: 700;
+      font-size: 0.75rem;
+      line-height: 1rem;
+      white-space: nowrap;
+    }
+
+    &:hover,
+    &:focus-within {
+      .content {
+        transform: translate(-50%, 0);
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}

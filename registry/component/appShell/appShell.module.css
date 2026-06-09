@@ -1,0 +1,208 @@
+@layer component {
+  .appShell {
+    --size: 4rem;
+
+    display: grid;
+    grid-template-rows: var(--size) 1fr;
+    grid-template-columns: var(--sidebar-width) 1fr;
+    background-color: var(--c-bg);
+    height: 100dvh;
+    overflow: hidden;
+    color: var(--c-text);
+
+    &.open .sidebarWrapper {
+      border-radius: var(--radius-alt);
+    }
+
+    &.closed {
+      grid-template-columns: var(--size) 1fr;
+
+      .sidebarHeader,
+      .sidebarFooter {
+        display: none;
+      }
+
+      .navHeader,
+      .navItem {
+        justify-content: center;
+
+        .navLabel {
+          display: none;
+        }
+      }
+    }
+
+    .headerWrapper {
+      display: flex;
+      grid-row: 1 / 2;
+      grid-column: 1 / -1;
+      align-items: center;
+      gap: 0.625rem;
+      z-index: 20;
+      border-bottom: 0.125rem solid var(--c-border);
+      border-radius: var(--radius);
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+      background-color: var(--c-muted);
+      padding: 0 1.5rem 0 0.625rem;
+
+      .header {
+        margin-left: 0.5rem;
+        font-weight: 900;
+        font-size: 1.75rem;
+        line-height: 2.25rem;
+        letter-spacing: -0.025em;
+      }
+
+      .action {
+        margin-left: auto;
+      }
+    }
+
+    .sidebarWrapper {
+      display: flex;
+      grid-column: 1 / 2;
+      flex-direction: column;
+      border-right: 0.125rem solid var(--c-border);
+      border-radius: var(--radius);
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+      background-color: color-mix(in oklch, var(--c-muted), var(--c-bg));
+      overflow: hidden;
+
+      .sidebarHeader,
+      .sidebarFooter {
+        flex-shrink: 0;
+        border-radius: var(--radius-alt);
+        max-height: 25%;
+        overflow-y: auto;
+      }
+      .sidebarHeader {
+        border-bottom: 0.125rem solid var(--c-border);
+        padding: 0.75rem;
+        font-weight: 800;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        letter-spacing: -0.025em;
+      }
+      .sidebarFooter {
+        border-top: 0.125rem solid var(--c-border);
+
+        &:not(.navWrapper) {
+          padding: 0.5rem;
+        }
+      }
+
+      .sidebar {
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
+      }
+
+      .navWrapper {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem 0;
+
+        .navHeader,
+        .navItem {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          border-radius: var(--radius);
+        }
+
+        .navHeader {
+          padding: 0.5rem 1rem 0.25rem 0.5rem;
+          font-weight: 700;
+          font-size: 1.25rem;
+          letter-spacing: -0.025em;
+
+          &:not(:first-child) {
+            margin-top: 0.5rem;
+            border-top: 0.125rem solid var(--c-border);
+          }
+
+          .navLabel {
+            font-size: 1em;
+          }
+        }
+
+        .navItem {
+          cursor: pointer;
+          border: none;
+          background-color: transparent;
+          padding: 0.75rem;
+          color: inherit;
+          color: var(--c-text);
+          text-decoration: none;
+          white-space: nowrap;
+
+          &:hover {
+            background-color: var(--c-muted);
+          }
+
+          &.active {
+            background-color: var(--c-primary);
+
+            &:hover {
+              background-color: color-mix(in oklch, var(--c-primary) 75%, var(--c-muted));
+            }
+          }
+        }
+      }
+    }
+
+    .backdrop {
+      display: none;
+    }
+
+    .main {
+      grid-row: 2 / -1;
+      grid-column: 2 / 3;
+      padding: 1rem;
+      overflow: auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .appShell,
+    .app-shell.is-closed {
+      grid-template-columns: 1fr;
+
+      &.open {
+        .sidebarWrapper {
+          transform: translateX(0);
+        }
+
+        .backdrop {
+          display: block;
+          position: fixed;
+          z-index: 5;
+          backdrop-filter: blur(2px);
+          inset: var(--size) 0 0 0;
+          background-color: color-mix(in oklch, var(--c-bg) 75%, transparent);
+        }
+      }
+
+      &.closed .sidebarWrapper {
+        box-shadow: none;
+      }
+
+      .sidebarWrapper {
+        position: fixed;
+        top: var(--size);
+        bottom: 0;
+        left: 0;
+        transform: translateX(-99%); /* Show just a bit */
+        z-index: 10;
+        width: var(--sidebar-width);
+      }
+
+      .main {
+        grid-row: 2 / -1;
+        grid-column: 1 / -1;
+      }
+    }
+  }
+}

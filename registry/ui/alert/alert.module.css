@@ -1,0 +1,37 @@
+@layer component {
+  .alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: color-mix(in oklch, var(--c-variant) 70%, light-dark(white, black));
+    padding: 1rem;
+    color: color-mix(in oklch, var(--c-variant) 30%, light-dark(black, white));
+
+    .icon {
+      position: relative;
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    .content {
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      gap: 0.25rem;
+
+      .title {
+        margin: 0;
+        font-weight: 900;
+        letter-spacing: 0.025em;
+      }
+
+      .body {
+        opacity: 0.9;
+        font-weight: 500;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@layer component {
+  .avatar {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--c-muted);
+    width: 3rem;
+    height: 3rem;
+    overflow: hidden;
+
+    .img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .fallback {
+      position: relative;
+      font-weight: 900;
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+    }
+  }
+}

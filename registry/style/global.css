@@ -1,0 +1,211 @@
+@layer theme, animations, base, patterns, components, utilities;
+
+@import url('./colors.css');
+
+@layer theme {
+  :root {
+    color-scheme: light dark;
+
+    --c-bg: light-dark(var(--c-grey-50), var(--c-blue-grey-900));
+    --c-text: light-dark(var(--c-grey-900), var(--c-grey-50));
+    --c-border: light-dark(var(--c-grey-900), var(--c-blue-grey-200));
+    --c-primary: light-dark(var(--c-blue-400), var(--c-blue-700));
+    --c-success: light-dark(var(--c-teal-400), var(--c-teal-700));
+    --c-warn: light-dark(var(--c-amber-300), var(--c-amber-800));
+    --c-error: light-dark(var(--c-red-400), var(--c-red-700));
+    --c-muted: light-dark(var(--c-grey-300), var(--c-blue-grey-800));
+    --c-shadow: light-dark(var(--c-blue-grey-700), oklch(0 0 0 / 0.7));
+    --c-pattern: color-mix(in oklch, var(--c-blue-grey-500), transparent);
+
+    &[data-theme='light'] {
+      color-scheme: light;
+    }
+    &[data-theme='dark'] {
+      color-scheme: dark;
+    }
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--c-bg);
+    color: var(--c-text);
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    text-shadow: 0 0 1px var(--c-bg);
+
+    @media (prefers-reduced-motion: reduce) {
+      animation-duration: 0.01ms;
+      transition-duration: 0.01ms;
+    }
+  }
+}
+
+@layer animations {
+  @keyframes boop {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    15% {
+      transform: scale(1.3) rotate(-5deg);
+    }
+    30% {
+      transform: scale(1);
+    }
+    45% {
+      transform: scale(1.3) rotate(5deg);
+    }
+    60% {
+      transform: scale(1);
+    }
+  }
+  .boop {
+    animation: boop 1.5s infinite;
+  }
+  .boop\:hover:hover {
+    animation: boop 1.5s infinite;
+  }
+
+  @keyframes float-tilt {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-0.75rem) rotate(8deg);
+    }
+  }
+  .float-tilt {
+    animation: float-tilt 2s infinite ease-in-out;
+  }
+  .float-tilt\:hover:hover {
+    animation: float-tilt 2s infinite ease-in-out;
+  }
+
+  @keyframes jump {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-0.25rem) rotate(-2deg);
+    }
+    75% {
+      transform: translateY(-0.125rem) rotate(2deg);
+    }
+  }
+  .jump {
+    animation: jump 0.5s infinite alternate;
+  }
+  .jump\:hover:hover {
+    animation: jump 0.5s infinite alternate;
+  }
+
+  @keyframes shiver {
+    0%,
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+      transform: translate(-2px, 1px) rotate(-2deg);
+    }
+    50% {
+      transform: translate(2px, -1px) rotate(2deg);
+    }
+    75% {
+      transform: translate(-1px, -2px) rotate(-1deg);
+    }
+  }
+  .shiver {
+    animation: shiver 0.2s infinite;
+  }
+  .shiver\:hover:hover {
+    animation: shiver 0.2s infinite;
+  }
+
+  @keyframes squiggle {
+    0%,
+    100% {
+      border-radius: var(--radius);
+    }
+    50% {
+      border-radius: var(--radius-alt);
+    }
+  }
+  .squiggle {
+    animation: squiggle 0.5s infinite;
+  }
+  .squiggle\:hover:hover {
+    animation: squiggle 0.5s infinite;
+  }
+
+  @keyframes squish {
+    0%,
+    100% {
+      transform: scaleX(1) scaleY(1);
+    }
+    50% {
+      transform: scaleX(1.2) scaleY(0.8);
+    }
+  }
+  .squish {
+    animation: squish 0.4s infinite alternate ease-in-out;
+  }
+  .squish\:hover:hover {
+    animation: squish 0.4s infinite alternate ease-in-out;
+  }
+
+  @keyframes tiptoe {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0);
+    }
+    25% {
+      transform: translateY(-4px) rotate(6deg);
+    }
+    50% {
+      transform: translateY(0) rotate(0);
+    }
+    75% {
+      transform: translateY(-4px) rotate(-6deg);
+    }
+  }
+  .tiptoe {
+    animation: tiptoe 0.8s infinite linear;
+  }
+  .tiptoe\:hover:hover {
+    animation: tiptoe 0.8s infinite linear;
+  }
+
+  @keyframes wobble {
+    0%,
+    100% {
+      transform: rotate(0deg) scale(1);
+    }
+    25% {
+      transform: rotate(-8deg) scale(1.1);
+    }
+    50% {
+      transform: rotate(8deg) scale(0.9);
+    }
+    75% {
+      transform: rotate(-4deg) scale(1.05);
+    }
+  }
+  .wobble {
+    animation: wobble 0.6s infinite;
+  }
+  .wobble\:hover:hover {
+    animation: wobble 0.6s infinite;
+  }
+}

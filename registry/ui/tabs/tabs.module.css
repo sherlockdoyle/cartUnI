@@ -1,0 +1,28 @@
+@layer component {
+  .tabsWrapper {
+    overflow: hidden;
+
+    .tabsList {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      border-bottom: 0.125rem solid var(--c-border);
+      border-radius: var(--radius-alt);
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+      background-color: var(--c-muted);
+      padding: 0.5rem;
+
+      .tabButton {
+        padding-block: 0.5rem;
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.025rem;
+      }
+    }
+
+    .tabPanel {
+      padding: 1rem;
+    }
+  }
+}
