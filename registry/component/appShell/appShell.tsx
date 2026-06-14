@@ -24,11 +24,12 @@ function isNav(nav: ContentOrNav): nav is Nav[] {
   return Array.isArray(nav) && nav.length > 0 && 'label' in nav[0];
 }
 
+const LINK_CLASSES = `${commonClasses.focusable} ${classes.navItem}`;
 function NavLink({ label, iconPath, href }: NavItem) {
   const [path] = useLocation();
 
   return (
-    <Link className={cn(classes.navItem, path === href && classes.active)} title={label} href={href}>
+    <Link className={cn(LINK_CLASSES, path === href && classes.active)} title={label} href={href}>
       <Icon path={iconPath} />
       <span className={classes.navLabel}>{label}</span>
     </Link>
@@ -56,7 +57,8 @@ function SidebarNav({ className, children }: { className?: string; children: Con
   );
 }
 
-const HEADER_CLASSES = `${commonClasses.shadow} ${classes.headerWrapper}`,
+const SKIP_LINK_CLASSES = `${commonClasses.focusable} ${classes.skipLink}`,
+  HEADER_CLASSES = `${commonClasses.shadow} ${classes.headerWrapper}`,
   SIDEBAR_CLASSES = `${commonClasses.shadow} ${classes.sidebarWrapper}`;
 export function AppShell({
   header,
@@ -89,22 +91,28 @@ export function AppShell({
       style={{ ...cStyles, ...style, '--sidebar-width': sidebarWidth } as CSSProperties} // used by children
       {...getCommonProps(props, classes.appShell, isSidebarOpen ? classes.open : classes.closed)}
     >
+      <a className={SKIP_LINK_CLASSES} href={`#${id}-main`}>
+        Skip to main content
+      </a>
+
       <header className={HEADER_CLASSES}>
         <Button
           size='icon'
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           variant={isSidebarOpen ? 'primary' : 'secondary'}
           aria-label='Toggle Sidebar'
-          aria-controls={id}
+          aria-controls={`${id}-sidebar`}
           aria-expanded={isSidebarOpen}
         >
           <Icon path={menu} />
         </Button>
-        <h1 className={classes.header}>{header}</h1>
+        <Link className={classes.headerLink} href='/'>
+          <h1 className={classes.header}>{header}</h1>
+        </Link>
         {action && <div className={classes.action}>{action}</div>}
       </header>
 
-      <aside id={id} className={SIDEBAR_CLASSES}>
+      <aside id={`${id}-sidebar`} className={SIDEBAR_CLASSES}>
         {sidebarHeader && <h2 className={classes.sidebarHeader}>{sidebarHeader}</h2>}
         <SidebarNav className={classes.sidebar}>{sidebar}</SidebarNav>
         {sidebarFooter && <SidebarNav className={classes.sidebarFooter}>{sidebarFooter}</SidebarNav>}
@@ -112,7 +120,9 @@ export function AppShell({
 
       <div className={classes.backdrop} onClick={() => setIsSidebarOpen(false)} aria-hidden='true' />
 
-      <main className={classes.main}>{children}</main>
+      <main id={`${id}-main`} className={classes.main} tabIndex={-1}>
+        {children}
+      </main>
     </div>
   );
 }

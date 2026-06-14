@@ -10,11 +10,11 @@
     overflow: hidden;
     color: var(--c-text);
 
-    &.open .sidebarWrapper {
+    &:is(.open, :has(.sidebarWrapper:focus-within)) .sidebarWrapper {
       border-radius: var(--radius-alt);
     }
 
-    &.closed {
+    &.closed:not(:has(.sidebarWrapper:focus-within)) {
       grid-template-columns: var(--size) 1fr;
 
       .sidebarHeader,
@@ -32,6 +32,24 @@
       }
     }
 
+    .skipLink {
+      position: absolute;
+      top: -10rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      border-radius: var(--radius);
+      background-color: var(--c-text);
+      padding: 0.5rem 1rem;
+      color: var(--c-bg);
+      font-weight: 600;
+      text-decoration: none;
+
+      &:focus {
+        top: 0.75rem;
+      }
+    }
+
     .headerWrapper {
       display: flex;
       grid-row: 1 / 2;
@@ -46,12 +64,18 @@
       background-color: var(--c-muted);
       padding: 0 1.5rem 0 0.625rem;
 
-      .header {
+      .headerLink {
+        cursor: auto;
         margin-left: 0.5rem;
-        font-weight: 900;
-        font-size: 1.75rem;
-        line-height: 2.25rem;
-        letter-spacing: -0.025em;
+        text-decoration: none;
+
+        .header {
+          color: var(--c-text);
+          font-weight: 900;
+          font-size: 1.75rem;
+          line-height: 2.25rem;
+          letter-spacing: -0.025em;
+        }
       }
 
       .action {
@@ -162,15 +186,16 @@
       grid-column: 2 / 3;
       padding: 1rem;
       overflow: auto;
-    }
-  }
 
-  @media (max-width: 768px) {
-    .appShell,
-    .app-shell.is-closed {
+      &:focus {
+        outline: none;
+      }
+    }
+
+    @media (max-width: 768px) {
       grid-template-columns: 1fr;
 
-      &.open {
+      &:is(.open, :has(.sidebarWrapper:focus-within)) {
         .sidebarWrapper {
           transform: translateX(0);
         }
@@ -185,7 +210,7 @@
         }
       }
 
-      &.closed .sidebarWrapper {
+      &.closed:not(:has(.sidebarWrapper:focus-within)) .sidebarWrapper {
         box-shadow: none;
       }
 

@@ -1,7 +1,7 @@
 import { useCachedStyles } from '@/hook/useCachedStyles';
 import { getCommonProps, type CommonProps, type CommonPropsWithAs } from '@/lib/utils';
 import commonClasses from '@/style/common.module.css';
-import { cloneElement, isValidElement, useId, type CSSProperties, type ElementType, type ReactNode } from 'react';
+import { cloneElement, isValidElement, useId, type ElementType, type ReactNode } from 'react';
 import classes from './popup.module.css';
 
 declare module 'react' {
@@ -37,7 +37,7 @@ export function Dialog({
         <button
           command='close'
           className={CLOSE_CLASSES}
-          style={closeStyles as CSSProperties}
+          style={closeStyles}
           commandfor={id}
           aria-label='Close dialog'
         />

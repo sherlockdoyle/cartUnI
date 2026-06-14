@@ -1,4 +1,4 @@
-import { useId } from 'react';
+import { useId, type CSSProperties } from 'react';
 
 const LOW_END = 500,
   MID_TIER = 2000,
@@ -45,7 +45,7 @@ class LRUCache<T> {
 
 const styleCache = new LRUCache<{ '--radius': string; '--radius-alt': string }>();
 
-export function useCachedStyles(percentageRadius = false) {
+export function useCachedStyles(percentageRadius = false): CSSProperties {
   const id = useId();
   return styleCache.getOrCompute(id, () => {
     if (percentageRadius) {
@@ -64,5 +64,5 @@ export function useCachedStyles(percentageRadius = false) {
       [r1, r2] = [r2, r1];
     }
     return { '--radius': r1, '--radius-alt': r2 };
-  });
+  }) as CSSProperties;
 }

@@ -1,0 +1,55 @@
+@import url('https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.min.css');
+
+@layer component {
+  .codeWrapper {
+    position: relative;
+    border: 0.125rem solid var(--c-border);
+    border-radius: var(--radius);
+    background-color: color-mix(in oklch, color-mix(in oklch, var(--c-muted), var(--c-bg)), #0000 33%);
+    padding: 0.5rem 1rem;
+    overflow: hidden;
+
+    --copy-button-size: 2rem;
+
+    &.inline {
+      display: inline;
+      border: none;
+      padding: 0 0.25rem;
+      line-height: 1;
+    }
+
+    .code {
+      white-space: pre-wrap;
+      tab-size: 2;
+
+      --sh-class: light-dark(var(--c-pink-800), var(--c-pink-300));
+      --sh-identifier: light-dark(var(--c-deep-purple-800), var(--c-deep-purple-300));
+      --sh-sign: light-dark(var(--c-blue-700), var(--c-blue-300));
+      --sh-property: light-dark(var(--c-cyan-800), var(--c-cyan-300));
+      --sh-entity: light-dark(var(--c-green-900), var(--c-green-200));
+      --sh-jsxliterals: light-dark(var(--c-lime-800), var(--c-lime-300));
+      --sh-string: light-dark(var(--c-amber-800), var(--c-amber-300));
+      --sh-keyword: light-dark(var(--c-deep-orange-800), var(--c-deep-orange-300));
+      --sh-comment: light-dark(var(--c-grey-700), var(--c-grey-400));
+
+      &,
+      & * {
+        font-family: 'Comic Mono', ui-monospace, Consolas, monospace;
+      }
+    }
+
+    &.hasButton {
+      :global(.sh__line):last-child {
+        padding-right: var(--copy-button-size);
+      }
+    }
+
+    .copyButton {
+      position: absolute;
+      right: 0.5rem;
+      bottom: min(0.5rem, calc(50% - var(--copy-button-size) / 2));
+      width: var(--copy-button-size);
+      height: var(--copy-button-size);
+    }
+  }
+}

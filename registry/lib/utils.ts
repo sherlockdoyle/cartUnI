@@ -6,10 +6,11 @@ export function cn(...classes: Classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-type Variant = 'primary' | 'secondary' | 'success' | 'warn' | 'error';
+type Variant = 'primary' | 'secondary' | 'muted' | 'success' | 'warn' | 'error';
 const variantClasses: Record<Variant, string> = {
   primary: commonClasses.vPrimary,
   secondary: commonClasses.vSecondary,
+  muted: commonClasses.vMuted,
   success: commonClasses.vSuccess,
   warn: commonClasses.vWarn,
   error: commonClasses.vError,

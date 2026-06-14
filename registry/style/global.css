@@ -6,7 +6,7 @@
   :root {
     color-scheme: light dark;
 
-    --c-bg: light-dark(var(--c-grey-50), var(--c-blue-grey-900));
+    --c-bg: light-dark(var(--c-grey-50), oklch(from var(--c-grey-600) calc(l - 0.35) calc(c * 0.65) h));
     --c-text: light-dark(var(--c-grey-900), var(--c-grey-50));
     --c-border: light-dark(var(--c-grey-900), var(--c-blue-grey-200));
     --c-primary: light-dark(var(--c-blue-400), var(--c-blue-700));
@@ -14,7 +14,7 @@
     --c-warn: light-dark(var(--c-amber-300), var(--c-amber-800));
     --c-error: light-dark(var(--c-red-400), var(--c-red-700));
     --c-muted: light-dark(var(--c-grey-300), var(--c-blue-grey-800));
-    --c-shadow: light-dark(var(--c-blue-grey-700), oklch(0 0 0 / 0.7));
+    --c-shadow: light-dark(oklch(from var(--c-blue-grey-900) l c h / 0.7), oklch(0 0 0 / 0.7));
     --c-pattern: color-mix(in oklch, var(--c-blue-grey-500), transparent);
 
     &[data-theme='light'] {

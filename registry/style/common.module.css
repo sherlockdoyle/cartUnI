@@ -22,6 +22,9 @@
   .vSecondary {
     --c-variant: var(--c-bg);
   }
+  .vMuted {
+    --c-variant: var(--c-muted);
+  }
   .vSuccess {
     --c-variant: var(--c-success);
   }

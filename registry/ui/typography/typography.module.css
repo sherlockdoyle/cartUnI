@@ -1,0 +1,140 @@
+@layer components {
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--c-text);
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+
+    &.b {
+      border-bottom: 0.125rem solid var(--c-border);
+      border-radius: var(--radius);
+      padding-bottom: 0.25rem;
+    }
+  }
+
+  .h1 {
+    font-size: 3rem;
+  }
+
+  .h2 {
+    font-size: 2.5rem;
+  }
+
+  .h3 {
+    font-size: 2rem;
+  }
+
+  .h4 {
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+
+  .h5 {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  .h6 {
+    font-weight: 700;
+    font-size: 1.125rem;
+    letter-spacing: 0.05em;
+  }
+
+  .p {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .small {
+    font-size: 0.875rem;
+  }
+
+  .a {
+    cursor: pointer;
+    border-bottom: 0.125rem solid currentColor;
+    border-radius: var(--radius);
+    color: color-mix(in oklch, var(--c-primary), var(--c-text) 75%);
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      border-radius: var(--radius-alt);
+      color: color-mix(in oklch, var(--c-primary), var(--c-text));
+    }
+  }
+
+  .blockquote {
+    margin: 2rem 0;
+    border-left: 0.25rem solid var(--c-border);
+    border-radius: var(--radius);
+    background-color: color-mix(in oklch, var(--c-bg), var(--c-muted));
+    padding: 1.25rem 1.5rem;
+    font-style: italic;
+    font-size: 1.125rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .mark {
+    border-radius: var(--radius);
+    background-color: color-mix(in oklch, var(--c-warn), transparent);
+    padding: 0 0.25rem;
+    color: inherit;
+  }
+
+  .ol,
+  .ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+  }
+
+  .li,
+  :is(.ol, .ul) > li /* also handles plain li */ {
+    margin-bottom: 0.5rem;
+  }
+
+  .ul.randomListStyle {
+    list-style: none;
+
+    .li {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 0.65rem;
+        left: -0.85rem;
+        border-radius: var(--radius);
+        background-color: currentColor;
+        width: 0.35rem;
+        height: 0.35rem;
+        content: '';
+      }
+    }
+  }
+
+  .hr {
+    transform: rotate(-0.5deg);
+    margin: 2rem 0;
+    border: none;
+    border-radius: var(--radius);
+    background-color: var(--c-border);
+    height: 0.1875rem;
+  }
+}

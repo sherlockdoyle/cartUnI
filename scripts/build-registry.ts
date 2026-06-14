@@ -104,6 +104,7 @@ await walkUiDir(path.join(REGISTRY_DIR, 'ui'));
 await walkUiDir(path.join(REGISTRY_DIR, 'component'));
 
 // special case
+components.find(c => c.name === 'code')!.dependencies = ['sugar-high'];
 components.find(c => c.name === 'appShell')!.dependencies = ['wouter'];
 
 await buildRegistry();

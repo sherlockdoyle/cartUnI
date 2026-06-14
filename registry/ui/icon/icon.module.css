@@ -1,5 +1,6 @@
 @layer component {
   .icon {
+    filter: drop-shadow(0 0 1px var(--c-bg));
     fill: none;
     stroke: currentColor;
     stroke-linecap: round;
