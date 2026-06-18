@@ -11,7 +11,10 @@ export function Tabs<const V extends string>({
   defaultValue,
   style,
   ...props
-}: CommonProps<'div', { tabs: { label: string; value: V; children: ReactNode }[]; defaultValue: NoInfer<V> }>) {
+}: CommonProps<
+  'div',
+  { tabs: { label: string; value: V; disabled?: boolean; children: ReactNode }[]; defaultValue: NoInfer<V> }
+>) {
   const [active, setActive] = useState(defaultValue);
 
   const cStyles = useCachedStyles();
@@ -36,7 +39,7 @@ export function Tabs<const V extends string>({
   return (
     <div style={{ ...cStyles, ...style }} {...getCommonProps(props, TABS_CLASSES)}>
       <div className={classes.tabsList} role='tablist' aria-orientation='horizontal'>
-        {tabs.map(({ label, value }, i) => {
+        {tabs.map(({ label, value, disabled }, i) => {
           const isActive = active === value;
 
           return (
@@ -50,6 +53,7 @@ export function Tabs<const V extends string>({
               tabIndex={isActive ? 0 : -1}
               role='tab'
               variant={isActive ? 'primary' : 'secondary'}
+              disabled={disabled}
               size='sm'
               onClick={() => setActive(value)}
               onKeyDown={e => handleKeyDown(e, i)}

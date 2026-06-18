@@ -27,9 +27,10 @@ function isNav(nav: ContentOrNav): nav is Nav[] {
 const LINK_CLASSES = `${commonClasses.focusable} ${classes.navItem}`;
 function NavLink({ label, iconPath, href }: NavItem) {
   const [path] = useLocation();
+  const cStyles = useCachedStyles();
 
   return (
-    <Link className={cn(LINK_CLASSES, path === href && classes.active)} title={label} href={href}>
+    <Link className={cn(LINK_CLASSES, path === href && classes.active)} title={label} href={href} style={cStyles}>
       <Icon path={iconPath} />
       <span className={classes.navLabel}>{label}</span>
     </Link>
@@ -67,6 +68,7 @@ export function AppShell({
   sidebarHeader,
   sidebarFooter,
   sidebarWidth = '16rem',
+  wideMain,
   style,
   children,
   ...props
@@ -79,6 +81,7 @@ export function AppShell({
     sidebarHeader?: string;
     sidebarFooter?: ContentOrNav;
     sidebarWidth?: CSSProperties['width'];
+    wideMain?: boolean;
   }
 >) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(() => window && window.innerWidth > 768);
@@ -121,7 +124,7 @@ export function AppShell({
       <div className={classes.backdrop} onClick={() => setIsSidebarOpen(false)} aria-hidden='true' />
 
       <main id={`${id}-main`} className={classes.main} tabIndex={-1}>
-        {children}
+        {wideMain ? children : <div className={classes.narrow}>{children}</div>}
       </main>
     </div>
   );

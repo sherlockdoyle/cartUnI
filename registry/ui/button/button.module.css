@@ -10,11 +10,16 @@
     letter-spacing: 0.025em;
     text-decoration: none;
 
-    &:hover {
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &:not(:disabled):hover {
       border-radius: var(--radius-alt);
       background-color: color-mix(in oklch, var(--c-variant) 85%, white);
     }
-    &:active {
+    &:not(:disabled):active {
       transform: translate(0.25rem, 0.25rem);
       box-shadow: 0 0 0 var(--c-shadow);
     }

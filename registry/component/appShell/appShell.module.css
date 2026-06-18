@@ -167,6 +167,7 @@
           }
 
           &.active {
+            border-radius: var(--radius-alt);
             background-color: var(--c-primary);
 
             &:hover {
@@ -189,6 +190,11 @@
 
       &:focus {
         outline: none;
+      }
+
+      .narrow {
+        margin: 0 auto;
+        max-width: 64rem;
       }
     }
 

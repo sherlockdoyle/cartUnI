@@ -5,12 +5,20 @@ import type { ReactNode } from 'react';
 import classes from './accordion.module.css';
 
 const ACCORDION_CLASSES = `${commonClasses.base} ${classes.accordionItem}`;
-export function AccordionItem({ title, style, children, ...props }: CommonProps<'details', { title?: ReactNode }>) {
+export function AccordionItem({
+  title,
+  disabled,
+  style,
+  children,
+  ...props
+}: CommonProps<'details', { title?: ReactNode; disabled?: boolean }>) {
   const cStyles = useCachedStyles();
 
   return (
-    <details style={{ ...cStyles, ...style }} {...getCommonProps(props, ACCORDION_CLASSES)}>
-      <summary className={classes.summary}>{title}</summary>
+    <details style={{ ...cStyles, ...style }} {...getCommonProps(props, ACCORDION_CLASSES)} aria-disabled={disabled}>
+      <summary className={classes.summary} inert={disabled}>
+        {title}
+      </summary>
       <div className={classes.content}>{children}</div>
     </details>
   );

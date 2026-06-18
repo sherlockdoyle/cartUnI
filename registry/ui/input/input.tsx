@@ -51,13 +51,13 @@ export function Switch({ style, ...props }: Omit<CommonProps<'input'>, 'type' | 
   );
 }
 
-const SLIDER_CLASSES = `${commonClasses.base} ${commonClasses.focusable} ${classes.slider}`;
+const SLIDER_CLASSES = `${commonClasses.base} ${classes.slider}`;
 export function Slider({ style, ...props }: Omit<CommonProps<'input'>, 'type'>) {
   const cStyles = useCachedStyles();
 
   return <input style={{ ...cStyles, ...style }} {...getCommonProps(props, SLIDER_CLASSES)} type='range' />;
 }
 
-export function Label(props: CommonProps<'label'>) {
-  return <label {...getCommonProps(props, classes.label)} />;
+export function Label({ inline, ...props }: CommonProps<'label', { inline?: boolean }>) {
+  return <label {...getCommonProps(props, classes.label, inline && classes.inline)} />;
 }
