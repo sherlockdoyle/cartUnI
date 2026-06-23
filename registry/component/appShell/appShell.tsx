@@ -3,7 +3,7 @@ import { cn, getCommonProps, type CommonProps } from '@/lib/utils';
 import commonClasses from '@/style/common.module.css';
 import { Button } from '@/ui/button/button';
 import { Icon, menu } from '@/ui/icon/icon';
-import { useId, useState, type CSSProperties, type ReactNode } from 'react';
+import { useId, useState, type CSSProperties, type HTMLAttributeAnchorTarget, type ReactNode } from 'react';
 import { Link, useLocation } from 'wouter';
 import classes from './appShell.module.css';
 
@@ -17,6 +17,7 @@ interface NavItem {
   iconPath: string;
   label: string;
   href: string;
+  target?: HTMLAttributeAnchorTarget;
 }
 type Nav = NavHeader | NavItem;
 type ContentOrNav = ReactNode | Nav[];
@@ -25,15 +26,23 @@ function isNav(nav: ContentOrNav): nav is Nav[] {
 }
 
 const LINK_CLASSES = `${commonClasses.focusable} ${classes.navItem}`;
-function NavLink({ label, iconPath, href }: NavItem) {
+function NavLink({ label, iconPath, href, target }: NavItem) {
   const [path] = useLocation();
   const cStyles = useCachedStyles();
 
+  const Comp = href.startsWith('http') ? 'a' : Link;
+
   return (
-    <Link className={cn(LINK_CLASSES, path === href && classes.active)} title={label} href={href} style={cStyles}>
+    <Comp
+      className={cn(LINK_CLASSES, path === href && classes.active)}
+      title={label}
+      href={href}
+      target={target}
+      style={cStyles}
+    >
       <Icon path={iconPath} />
       <span className={classes.navLabel}>{label}</span>
-    </Link>
+    </Comp>
   );
 }
 

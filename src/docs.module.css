@@ -1,0 +1,49 @@
+.title {
+  margin-top: 0;
+}
+
+.description {
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: start;
+  gap: 0.5rem;
+}
+
+.preview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  &.atStart {
+    justify-content: start;
+  }
+}
+
+.my {
+  margin: 1rem 0;
+}
+
+.box {
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
+  width: 8rem;
+  height: 8rem;
+  font-size: 1.25rem;
+}
+
+.iconButton {
+  flex-direction: column;
+  height: auto;
+  font-weight: 500;
+
+  .icon {
+    font-size: 2rem;
+  }
+}

@@ -6,33 +6,39 @@ import { useMemo, useState } from 'react';
 import { highlight, type HighlightOptions } from 'sugar-high';
 import classes from './code.module.css';
 
-export function Code({
-  code,
-  options,
-  inline,
-  noCopy,
-  style,
-  ...props
-}: CommonProps<'div', { code: string; options?: HighlightOptions; inline?: boolean; noCopy?: boolean }>) {
+interface CodeProps {
+  code: string;
+  options?: HighlightOptions;
+  noCopy?: boolean;
+}
+type BlockCodeProps = CommonProps<'pre', CodeProps & { inline?: false }>;
+type InlineCodeProps = CommonProps<'code', CodeProps & { inline: true }>;
+
+export function Code({ code, options, inline, noCopy, style, ...props }: BlockCodeProps | InlineCodeProps) {
   const [copied, setCopied] = useState(false);
 
-  const cStyles = useCachedStyles();
+  const cStyles = useCachedStyles(),
+    allStyles = { ...cStyles, ...style };
   const highlighted = useMemo(() => highlight(code, options), [code, options]);
-  const codeElem = <code className={classes.code} dangerouslySetInnerHTML={{ __html: highlighted }} />;
+
+  if (inline)
+    return (
+      <code
+        style={allStyles}
+        {...getCommonProps(props, classes.code, classes.inline)}
+        dangerouslySetInnerHTML={{ __html: highlighted }}
+      />
+    );
 
   return (
-    <div
-      style={{ ...cStyles, ...style }}
-      {...getCommonProps(
-        props,
-        classes.codeWrapper,
-        inline && classes.inline,
-        !(inline || noCopy) && classes.hasButton,
-      )}
+    <pre
+      style={allStyles}
+      // props is not really BlockCodeProps here, but this is short and valid enough
+      {...getCommonProps(props as BlockCodeProps, classes.codeWrapper, !noCopy && classes.hasButton)}
     >
-      {inline ? codeElem : <pre>{codeElem}</pre>}
+      <code className={classes.code} dangerouslySetInnerHTML={{ __html: highlighted }} />
 
-      {inline || noCopy || (
+      {noCopy || (
         <Button
           className={classes.copyButton}
           variant='muted'
@@ -46,6 +52,6 @@ export function Code({
           <Icon path={copied ? check : copy} />
         </Button>
       )}
-    </div>
+    </pre>
   );
 }
