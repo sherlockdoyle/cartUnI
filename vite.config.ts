@@ -6,4 +6,5 @@ export default defineConfig({
   plugins: [react()],
   css: { modules: { generateScopedName: '[hash:base64:5]' } },
   resolve: { tsconfigPaths: true },
+  base: '/cartUnI',
 });

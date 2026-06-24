@@ -4,6 +4,7 @@
   .code {
     white-space: pre-wrap;
     tab-size: 2;
+    word-wrap: break-word;
 
     --sh-class: light-dark(var(--c-pink-800), var(--c-pink-300));
     --sh-identifier: light-dark(var(--c-deep-purple-800), var(--c-deep-purple-300));

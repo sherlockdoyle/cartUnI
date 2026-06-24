@@ -63,6 +63,6 @@ export function useCachedStyles(percentageRadius = false): CSSProperties {
     if (Math.random() > 0.5) {
       [r1, r2] = [r2, r1];
     }
-    return { '--radius': r1, '--radius-alt': r2, rotate: `${Math.random() - 0.5}deg` } as CSSProperties;
+    return { '--radius': r1, '--radius-alt': r2, rotate: `${Math.random() - 0.5}deg` };
   }) as CSSProperties;
 }

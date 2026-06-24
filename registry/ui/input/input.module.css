@@ -34,7 +34,7 @@
     &::after {
       position: absolute;
       top: 40%;
-      right: 1.5rem;
+      right: 1.25rem;
       transform: translateY(-40%) rotate(45deg);
       border-right: 0.2rem solid currentColor;
       border-bottom: 0.2rem solid currentColor;
@@ -51,7 +51,7 @@
     .select {
       appearance: none;
       cursor: pointer;
-      padding-right: 2.5rem;
+      padding-right: 3rem;
       height: 3rem;
 
       option:not(:disabled) {

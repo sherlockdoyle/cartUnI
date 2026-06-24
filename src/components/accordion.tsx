@@ -25,13 +25,13 @@ export default function Accordion() {
             dashboard. We ship to prod. We ship wobbly. These are not mutually exclusive.
           </AccordionItem>
           <AccordionItem title='Why does every component look slightly different?'>
-            That's the whole point! The <Code code='useCachedStyles' /> hook generates randomized border-radii for each
-            component instance. No two buttons, no two cards, no two accordions look the same. It's like snowflakes, but
-            nerdier and significantly less cold.
+            That's the whole point! The <Code code='useCachedStyles' inline /> hook generates randomized border-radii
+            for each component instance. No two buttons, no two cards, no two accordions look the same. It's like
+            snowflakes, but nerdier and significantly less cold.
           </AccordionItem>
           <AccordionItem title='Can I put other components inside an accordion?'>
-            Absolutely. Throw in buttons, inputs, other cards, a <Code code='Dialog' />, your deepest regrets - the
-            accordion is non-judgmental. It just collapses and expands. That's its whole personality.
+            Absolutely. Throw in buttons, inputs, other cards, a <Code code='Dialog' inline />, your deepest regrets -
+            the accordion is non-judgmental. It just collapses and expands. That's its whole personality.
           </AccordionItem>
         </ComponentPreview>
         <Code

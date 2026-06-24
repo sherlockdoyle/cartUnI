@@ -13,6 +13,7 @@
       border-top-left-radius: 0 !important;
       background-color: var(--c-muted);
       padding: 1rem;
+      padding-right: 3rem;
       font-weight: 900;
       font-size: 1.0625rem;
       line-height: 1.25rem;
