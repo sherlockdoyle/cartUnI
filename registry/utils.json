@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "utils",
+  "type": "registry:lib",
+  "registryDependencies": [
+    "commonClasses"
+  ],
+  "files": [
+    {
+      "path": "registry/lib/utils.ts",
+      "content": "import commonClasses from '@/style/common.module.css';\nimport type { ComponentProps, ElementType } from 'react';\n\ntype Classes = (string | undefined | null | false)[];\nexport function cn(...classes: Classes) {\n  return classes.filter(Boolean).join(' ');\n}\n\ntype Variant = 'primary' | 'secondary' | 'muted' | 'success' | 'warn' | 'error';\nconst variantClasses: Record<Variant, string> = {\n  primary: commonClasses.vPrimary,\n  secondary: commonClasses.vSecondary,\n  muted: commonClasses.vMuted,\n  success: commonClasses.vSuccess,\n  warn: commonClasses.vWarn,\n  error: commonClasses.vError,\n};\n\ntype Pattern = 'hachure' | 'crosshatch' | 'dots' | 'stripes' | 'zigzag' | 'paper';\nexport const patternClasses: Record<Pattern, string> = {\n  hachure: commonClasses.hachure,\n  crosshatch: commonClasses.crosshatch,\n  dots: commonClasses.dots,\n  stripes: commonClasses.stripes,\n  zigzag: commonClasses.zigzag,\n  paper: commonClasses.paper,\n};\n\ninterface SharedProps {\n  pattern?: Pattern;\n  noise?: boolean;\n}\nexport type CommonProps<E extends ElementType, P = unknown> = Omit<\n  ComponentProps<E>,\n  keyof SharedProps | 'as' | keyof P\n> &\n  SharedProps &\n  P;\nexport type CommonPropsWithAs<E extends ElementType = ElementType, P = unknown> = CommonProps<E, P> & { as?: E };\n\nexport type WithVariant<T> = T & { variant?: Variant };\n\ntype CleanProps<T> = Omit<T, keyof SharedProps>;\nexport function getCommonProps<T extends WithVariant<SharedProps & { className?: string }>>(\n  { variant, pattern, noise, className, ...rest }: T,\n  ...classes: Classes\n): CleanProps<T> {\n  return {\n    className: cn(\n      ...classes,\n      variant && variantClasses[variant],\n      pattern && patternClasses[pattern],\n      noise && commonClasses.noise,\n      className,\n    ),\n    ...rest,\n  } as CleanProps<T>;\n}\n",
+      "type": "registry:lib"
+    }
+  ]
+}

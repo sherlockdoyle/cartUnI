@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "themeToggle",
+  "type": "registry:component",
+  "registryDependencies": [
+    "useTheme",
+    "button",
+    "icon"
+  ],
+  "files": [
+    {
+      "path": "registry/component/themeToggle.tsx",
+      "content": "import useTheme from '@/hook/useTheme';\nimport { Button } from '@/ui/button/button';\nimport { Icon, monitorSmartphone, moon, sun } from '@/ui/icon/icon';\n\nexport function ThemeToggle() {\n  const [theme, setTheme] = useTheme();\n\n  return (\n    <Button\n      title={`${theme[0].toUpperCase() + theme.slice(1)} Theme`}\n      variant='secondary'\n      size='icon'\n      onClick={() => setTheme(theme === 'dark' ? 'system' : theme === 'system' ? 'light' : 'dark')}\n    >\n      <Icon path={theme === 'light' ? sun : theme === 'dark' ? moon : monitorSmartphone} />\n    </Button>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ]
+}

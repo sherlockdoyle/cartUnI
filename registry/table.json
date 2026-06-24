@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "useCachedStyles",
+    "utils",
+    "commonClasses"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/table/table.module.css",
+      "content": "@layer components {\n  .table {\n    border-collapse: separate;\n    border-spacing: 0;\n    width: 100%;\n    overflow: hidden;\n    text-align: left;\n\n    .th,\n    .td {\n      padding: 0.5rem 1rem;\n    }\n\n    .th {\n      font-weight: 700;\n    }\n\n    .thead {\n      background-color: var(--c-muted);\n\n      .th {\n        border-bottom: 0.125rem solid var(--c-border);\n        padding: 0.75rem 1rem;\n\n        &:first-child {\n          border-radius: var(--radius-alt);\n          border-bottom-right-radius: 0;\n        }\n        &:last-child {\n          border-radius: var(--radius-alt);\n          border-bottom-left-radius: 0;\n        }\n      }\n    }\n\n    .tbody {\n      .tr:hover {\n        background-color: color-mix(in oklch, var(--c-primary), transparent);\n      }\n\n      .th {\n        border-right: 0.125rem solid var(--c-border);\n\n        .tr:first-child & {\n          border-radius: var(--radius-alt);\n          border-bottom-right-radius: 0;\n        }\n        .tr:last-child & {\n          border-radius: var(--radius-alt);\n          border-top-right-radius: 0;\n        }\n      }\n    }\n\n    .tfoot {\n      background-color: color-mix(in oklch, var(--c-muted), var(--c-bg));\n\n      .th,\n      .td {\n        border-top: 0.125rem solid var(--c-border);\n\n        &:first-child {\n          border-radius: var(--radius-alt);\n          border-top-right-radius: 0;\n        }\n        &:last-child {\n          border-radius: var(--radius-alt);\n          border-top-left-radius: 0;\n        }\n      }\n\n      .td {\n        font-weight: 600;\n      }\n    }\n  }\n}\n",
+      "type": "registry:style"
+    },
+    {
+      "path": "registry/ui/table/table.tsx",
+      "content": "import { useCachedStyles } from '@/hook/useCachedStyles';\nimport { getCommonProps, type CommonProps } from '@/lib/utils';\nimport commonClasses from '@/style/common.module.css';\nimport classes from './table.module.css';\n\nconst TABLE_CLASSES = `${commonClasses.base} ${classes.table}`;\nexport function Table({ fixed, style, children, ...props }: CommonProps<'table', { fixed?: boolean }>) {\n  const cStyles = useCachedStyles();\n\n  return (\n    <table\n      style={{ ...cStyles, ...style, tableLayout: fixed ? 'fixed' : undefined }}\n      {...getCommonProps(props, TABLE_CLASSES)}\n    >\n      {children}\n    </table>\n  );\n}\n\nexport function THead(props: CommonProps<'thead'>) {\n  return <thead {...getCommonProps(props, classes.thead)} />;\n}\n\nexport function TBody(props: CommonProps<'tbody'>) {\n  return <tbody {...getCommonProps(props, classes.tbody)} />;\n}\n\nexport function TFoot(props: CommonProps<'tfoot'>) {\n  return <tfoot {...getCommonProps(props, classes.tfoot)} />;\n}\n\nexport function Tr(props: CommonProps<'tr'>) {\n  return <tr {...getCommonProps(props, classes.tr)} />;\n}\n\nexport function Th(props: CommonProps<'th'>) {\n  return <th {...getCommonProps(props, classes.th)} />;\n}\n\nexport function Td(props: CommonProps<'td'>) {\n  return <td {...getCommonProps(props, classes.td)} />;\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

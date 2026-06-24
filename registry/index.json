@@ -1,0 +1,265 @@
+[
+  {
+    "name": "globalStyles",
+    "type": "registry:base",
+    "files": [
+      "registry/style/colors.css",
+      "registry/style/global.css"
+    ]
+  },
+  {
+    "name": "commonClasses",
+    "type": "registry:style",
+    "files": [
+      "registry/style/common.module.css"
+    ]
+  },
+  {
+    "name": "utils",
+    "type": "registry:lib",
+    "registryDependencies": [
+      "commonClasses"
+    ],
+    "files": [
+      "registry/lib/utils.ts"
+    ]
+  },
+  {
+    "name": "useTheme",
+    "type": "registry:hook",
+    "files": [
+      "registry/hook/useTheme.ts"
+    ]
+  },
+  {
+    "name": "useCachedStyles",
+    "type": "registry:hook",
+    "files": [
+      "registry/hook/useCachedStyles.ts"
+    ]
+  },
+  {
+    "name": "accordion",
+    "type": "registry:ui",
+    "registryDependencies": [
+      "useCachedStyles",
+      "utils",
+      "commonClasses"
+    ],
+    "files": [
+      "registry/ui/accordion/accordion.module.css",
+      "registry/ui/accordion/accordion.tsx"
+    ]
+  },
+  {
+    "name": "alert",
+    "type": "registry:ui",
+    "registryDependencies": [
+      "useCachedStyles",
+      "utils",
+      "commonClasses"
+    ],
+    "files": [
+      "registry/ui/alert/alert.module.css",
+      "registry/ui/alert/alert.tsx"
+    ]
+  },
+  {
+    "name": "avatar",
+    "type": "registry:ui",
+    "registryDependencies": [
+      "useCachedStyles",
+      "utils",
+      "commonClasses"
+    ],
+    "files": [
+      "registry/ui/avatar/avatar.module.css",
+      "registry/ui/avatar/avatar.tsx"
+    ]
+  },
+  {
+    "name": "badge",
+    "type": "registry:ui",
+    "registryDependencies": [
+      "useCachedStyles",
+      "utils",
+      "commonClasses"
+    ],
+    "files": [
+      "registry/ui/badge/badge.module.css",
+      "registry/ui/badge/badge.tsx"
+    ]
+  },
+  {
+    "name": "button",
+    "type": "registry:ui",
+    "registryDependencies": [
+      "useCachedStyles",
+      "utils",
+      "commonClasses"
+    ],
+    "files": [
+      "registry/ui/button/button.module.css",
+      "registry/ui/button/button.tsx"
+    ]
+  },
+  {
+    "name": "card",
+    "type": "registry:ui",
+    "registryDependencies": [
+      "useCachedStyles",
+      "utils",
+      "commonClasses"
+    ],
+    "files": [
+      "registry/ui/card/card.module.css",
+      "registry/ui/card/card.tsx"
+    ]
+  },
+  {
+    "name": "filter",
+    "type": "registry:ui",
+    "registryDependencies": [],
+    "files": [
+      "registry/ui/filter/filter.module.css",
+      "registry/ui/filter/filter.tsx"
+    ]
+  },
+  {
+    "name": "icon",
+    "type": "registry:ui",
+    "registryDependencies": [
+      "utils"
+    ],
+    "files": [
+      "registry/ui/icon/icon.module.css",
+      "registry/ui/icon/icon.tsx"
+    ]
+  },
+  {
+    "name": "input",
+    "type": "registry:ui",
+    "registryDependencies": [
+      "useCachedStyles",
+      "utils",
+      "commonClasses"
+    ],
+    "files": [
+      "registry/ui/input/input.module.css",
+      "registry/ui/input/input.tsx"
+    ]
+  },
+  {
+    "name": "popup",
+    "type": "registry:ui",
+    "registryDependencies": [
+      "useCachedStyles",
+      "utils",
+      "commonClasses"
+    ],
+    "files": [
+      "registry/ui/popup/popup.module.css",
+      "registry/ui/popup/popup.tsx"
+    ]
+  },
+  {
+    "name": "progress",
+    "type": "registry:ui",
+    "registryDependencies": [
+      "useCachedStyles",
+      "utils",
+      "commonClasses"
+    ],
+    "files": [
+      "registry/ui/progress/progress.module.css",
+      "registry/ui/progress/progress.tsx"
+    ]
+  },
+  {
+    "name": "table",
+    "type": "registry:ui",
+    "registryDependencies": [
+      "useCachedStyles",
+      "utils",
+      "commonClasses"
+    ],
+    "files": [
+      "registry/ui/table/table.module.css",
+      "registry/ui/table/table.tsx"
+    ]
+  },
+  {
+    "name": "tabs",
+    "type": "registry:ui",
+    "registryDependencies": [
+      "useCachedStyles",
+      "utils",
+      "commonClasses",
+      "button"
+    ],
+    "files": [
+      "registry/ui/tabs/tabs.module.css",
+      "registry/ui/tabs/tabs.tsx"
+    ]
+  },
+  {
+    "name": "typography",
+    "type": "registry:ui",
+    "registryDependencies": [
+      "useCachedStyles",
+      "utils",
+      "commonClasses"
+    ],
+    "files": [
+      "registry/ui/typography/typography.module.css",
+      "registry/ui/typography/typography.tsx"
+    ]
+  },
+  {
+    "name": "appShell",
+    "type": "registry:component",
+    "registryDependencies": [
+      "useCachedStyles",
+      "utils",
+      "commonClasses",
+      "button",
+      "icon"
+    ],
+    "files": [
+      "registry/component/appShell/appShell.module.css",
+      "registry/component/appShell/appShell.tsx"
+    ],
+    "dependencies": [
+      "wouter"
+    ]
+  },
+  {
+    "name": "code",
+    "type": "registry:component",
+    "registryDependencies": [
+      "useCachedStyles",
+      "utils",
+      "button",
+      "icon"
+    ],
+    "files": [
+      "registry/component/code/code.module.css",
+      "registry/component/code/code.tsx"
+    ],
+    "dependencies": [
+      "sugar-high"
+    ]
+  },
+  {
+    "name": "themeToggle",
+    "type": "registry:component",
+    "registryDependencies": [
+      "useTheme",
+      "button",
+      "icon"
+    ],
+    "files": [
+      "registry/component/themeToggle.tsx"
+    ]
+  }
+]

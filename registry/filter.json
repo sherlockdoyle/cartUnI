@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "filter",
+  "type": "registry:ui",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/ui/filter/filter.module.css",
+      "content": ".filter {\n  position: absolute;\n  width: 0;\n  height: 0;\n  pointer-events: none;\n}\n",
+      "type": "registry:style"
+    },
+    {
+      "path": "registry/ui/filter/filter.tsx",
+      "content": "import type { FC } from 'react';\nimport styles from './filter.module.css';\n\nconst Filter: FC = () => (\n  <svg className={styles.filter}>\n    <filter id='noise' width='140%' height='140%' x='-20%' y='-20%'>\n      <feTurbulence type='fractalNoise' result='noise' baseFrequency='0.04' numOctaves='3' />\n      <feDisplacementMap scale='3' in='SourceGraphic' in2='noise' xChannelSelector='R' yChannelSelector='G' />\n    </filter>\n  </svg>\n);\nexport default Filter;\n",
+      "type": "registry:ui"
+    }
+  ]
+}

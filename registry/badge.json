@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "useCachedStyles",
+    "utils",
+    "commonClasses"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/badge/badge.module.css",
+      "content": "@layer component {\n  .badge {\n    background-color: var(--c-variant);\n    padding: 0.125rem 0.75rem;\n    font-weight: 900;\n    font-size: 0.75rem;\n    line-height: 1rem;\n    letter-spacing: 0.1em;\n  }\n}\n",
+      "type": "registry:style"
+    },
+    {
+      "path": "registry/ui/badge/badge.tsx",
+      "content": "import { useCachedStyles } from '@/hook/useCachedStyles';\nimport { getCommonProps, type CommonPropsWithAs, type WithVariant } from '@/lib/utils';\nimport commonClasses from '@/style/common.module.css';\nimport type { ElementType } from 'react';\nimport classes from './badge.module.css';\n\nconst BADGE_CLASSES = `${commonClasses.base} ${classes.badge}`;\nexport function Badge<E extends ElementType = 'span'>({ as, style, ...props }: WithVariant<CommonPropsWithAs<E>>) {\n  const Comp = as ?? 'span';\n  const cStyles = useCachedStyles();\n\n  return (\n    <Comp style={{ ...cStyles, ...style }} {...getCommonProps({ variant: 'secondary', ...props }, BADGE_CLASSES)} />\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

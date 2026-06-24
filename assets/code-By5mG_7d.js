@@ -1,0 +1,17 @@
+import{F as e,T as t,at as n,i as r,n as i,p as a,r as o,t as s}from"./doc-page-CsJyPCAc.js";var c=n();function l(){return(0,c.jsxs)(i,{title:`Code`,description:`Syntax-highlighted code blocks with a copy button, powered by sugar-high. Comes in block and inline flavors - because sometimes you need a whole code fence, and sometimes you just need a lil' snippet.`,children:[(0,c.jsxs)(o,{title:`Installation`,children:[(0,c.jsx)(e,{code:`npx shadcn@latest add cartuni/code`}),(0,c.jsxs)(t,{children:[`This component uses`,` `,(0,c.jsx)(a,{href:`https://github.com/huozhi/sugar-high`,rel:`noreferrer`,target:`_blank`,children:`sugar-high`}),` `,`for syntax highlighting - a tiny (1KB), zero-dependency highlighter. It gets installed automatically as a dependency.`]})]}),(0,c.jsxs)(o,{title:`Block Usage`,children:[(0,c.jsxs)(t,{children:[`Drop in a `,(0,c.jsx)(e,{code:`Code`,inline:!0}),` component with a `,(0,c.jsx)(e,{code:`code`,inline:!0}),` prop and you get a full-width, syntax-highlighted code block with a copy button in the corner. For supported highlighting options refer to the sugar-high docs.`]}),(0,c.jsx)(s,{children:(0,c.jsx)(`div`,{style:{width:`100%`},children:(0,c.jsx)(e,{code:`from pawky import Pawky
+
+awk = Pawky()
+
+def header(r):
+  print(r, 'Total')
+awk[1] = header
+
+def lines(r):
+  print(r, ...)
+awk[2:] = lines
+
+(awk > 'out.txt') < 'marks.txt'`})})}),(0,c.jsx)(e,{code:`import { Code } from '@/component/code/code';
+
+<Code code={\`def end():
+  print('Total', ...)
+awk['END'] = end\`} />`})]}),(0,c.jsxs)(o,{title:`Inline Usage`,children:[(0,c.jsxs)(t,{children:[`Pass `,(0,c.jsx)(e,{code:`inline`,inline:!0}),` to render a compact, inline code snippet - perfect for mentioning a`,` `,(0,c.jsx)(e,{code:`functionName()`,inline:!0}),` or `,(0,c.jsx)(e,{code:`variableName`,inline:!0}),` right in the middle of a sentence. No copy button, no `,(0,c.jsx)(e,{code:`<pre>`,inline:!0}),` wrapper, just a tidy little badge of code.`]}),(0,c.jsx)(s,{atStart:!0,children:(0,c.jsxs)(t,{children:[`Use the `,(0,c.jsx)(e,{code:`useCachedStyles`,inline:!0}),` hook to make things wobbly.`,` `,(0,c.jsx)(e,{code:`prettier-plugin-sort-props`,inline:!0}),` keeps your JSX props tidy. These things are unrelated but both true.`]})}),(0,c.jsx)(e,{code:`<Code code="useCachedStyles" inline />`})]}),(0,c.jsxs)(o,{title:`Without Copy Button`,children:[(0,c.jsxs)(t,{children:[`Don't want the copy button? Set `,(0,c.jsx)(e,{code:`noCopy`,inline:!0}),` to hide it. The code block will still look the same, just without the lil' clipboard icon. Great for single-liners you don't expect anyone to actually copy.`]}),(0,c.jsx)(e,{code:`<Code code="you really gonna copy this?" noCopy />`,noCopy:!0})]}),(0,c.jsx)(o,{title:`API Reference`,children:(0,c.jsx)(r,{items:[{name:`code`,type:`string`,description:`The code string to highlight and display.`},{name:`inline`,type:`boolean`,default:`false`,description:`Renders as an inline <code> element instead of a block <pre>.`},{name:`noCopy`,type:`boolean`,default:`false`,description:`Hides the copy-to-clipboard button.`},{name:`options`,type:`HighlightOptions`,description:`Options passed to sugar-high's highlight() function.`}]})})]})}export{l as default};

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "useCachedStyles",
+    "utils",
+    "commonClasses"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/card/card.module.css",
+      "content": "@layer components {\n  .card {\n    display: flex;\n    flex-direction: column;\n    gap: 1rem;\n    background-color: var(--c-bg);\n    padding: 1.5rem;\n    color: var(--c-text);\n  }\n\n  .cardHeader,\n  .cardFooter {\n    display: flex;\n    position: relative;\n    gap: 0.375rem;\n  }\n\n  .cardHeader {\n    flex-direction: column;\n  }\n\n  .cardTitle {\n    font-weight: 900;\n    font-size: 1.5rem;\n    line-height: 2rem;\n    letter-spacing: -0.025em;\n  }\n\n  .cardDescription {\n    opacity: 0.8;\n    font-weight: 500;\n    font-size: 0.875rem;\n    line-height: 1.25rem;\n  }\n\n  .cardContent {\n    position: relative;\n    flex: 1 1 0%;\n  }\n\n  .cardFooter {\n    justify-content: flex-end;\n  }\n}\n",
+      "type": "registry:style"
+    },
+    {
+      "path": "registry/ui/card/card.tsx",
+      "content": "import { useCachedStyles } from '@/hook/useCachedStyles';\nimport { getCommonProps, type CommonProps, type CommonPropsWithAs } from '@/lib/utils';\nimport commonClasses from '@/style/common.module.css';\nimport type { ElementType } from 'react';\nimport classes from './card.module.css';\n\nconst CARD_CLASSES = `${commonClasses.base} ${commonClasses.shadow} ${classes.card}`;\nexport function Card<E extends ElementType = 'article'>({ as, style, ...props }: CommonPropsWithAs<E>) {\n  const Comp = as ?? 'article';\n  const cStyles = useCachedStyles();\n\n  return <Comp style={{ ...cStyles, ...style }} {...getCommonProps(props, CARD_CLASSES)} />;\n}\n\nexport function CardHeader(props: CommonProps<'header'>) {\n  return <header {...getCommonProps(props, classes.cardHeader)} />;\n}\n\nexport function CardTitle<E extends ElementType = 'h3'>({ as, ...props }: CommonPropsWithAs<E>) {\n  const Comp = as ?? 'h3';\n\n  return <Comp {...getCommonProps(props, classes.cardTitle)} />;\n}\n\nexport function CardDescription(props: CommonProps<'p'>) {\n  return <p {...getCommonProps(props, classes.cardDescription)} />;\n}\n\nexport function CardContent(props: CommonProps<'div'>) {\n  return <div {...getCommonProps(props, classes.cardContent)} />;\n}\n\nexport function CardFooter(props: CommonProps<'footer'>) {\n  return <footer {...getCommonProps(props, classes.cardFooter)} />;\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

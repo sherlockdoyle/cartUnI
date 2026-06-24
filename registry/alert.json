@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "useCachedStyles",
+    "utils",
+    "commonClasses"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/alert/alert.module.css",
+      "content": "@layer component {\n  .alert {\n    display: flex;\n    align-items: flex-start;\n    gap: 1rem;\n    background-color: color-mix(in oklch, var(--c-variant) 70%, light-dark(white, black));\n    padding: 1rem;\n    width: 100%;\n    color: color-mix(in oklch, var(--c-variant) 30%, light-dark(black, white));\n\n    .icon {\n      position: relative;\n      flex-shrink: 0;\n      width: 1.5rem;\n      height: 1.5rem;\n    }\n\n    .content {\n      display: flex;\n      position: relative;\n      flex-direction: column;\n      gap: 0.25rem;\n\n      .title {\n        margin: 0;\n        font-weight: 900;\n        letter-spacing: 0.025em;\n      }\n\n      .body {\n        opacity: 0.9;\n        font-weight: 500;\n        font-size: 0.875rem;\n        line-height: 1.25rem;\n      }\n    }\n  }\n}\n",
+      "type": "registry:style"
+    },
+    {
+      "path": "registry/ui/alert/alert.tsx",
+      "content": "import { useCachedStyles } from '@/hook/useCachedStyles';\nimport { getCommonProps, type CommonPropsWithAs, type WithVariant } from '@/lib/utils';\nimport commonClasses from '@/style/common.module.css';\nimport type { ElementType, ReactNode } from 'react';\nimport classes from './alert.module.css';\n\nconst ALERT_CLASSES = `${commonClasses.base} ${commonClasses.shadow} ${classes.alert}`;\nexport function Alert<E extends ElementType = 'div'>({\n  as,\n  icon,\n  title,\n  style,\n  role = 'alert',\n  children,\n  ...props\n}: WithVariant<CommonPropsWithAs<E, { icon?: ReactNode; title?: ReactNode }>>) {\n  const Comp = as ?? 'div';\n  const cStyles = useCachedStyles();\n\n  return (\n    <Comp\n      style={{ ...cStyles, ...style }}\n      {...getCommonProps({ variant: 'secondary', ...props }, ALERT_CLASSES)}\n      role={role}\n    >\n      {icon && <span className={classes.icon}>{icon}</span>}\n      <div className={classes.content}>\n        {title && <h5 className={classes.title}>{title}</h5>}\n        <div className={classes.body}>{children}</div>\n      </div>\n    </Comp>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}
