@@ -1,73 +1,65 @@
-# React + TypeScript + Vite
+# <img src="public/favicon.svg" alt="cartUnI Icon" width="32" height="32" valign="bottom"> cartUnI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Cartoonish UI components for serious React apps**
 
-Currently, two official plugins are available:
+*AI generated content follows. [Read the docs](https://sherlockdoyle.github.io/cartUnI/) for a more handcrafted version.*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+cartUnI is a zero-dependency component library designed to inject a playful, sketched-on-paper vibe into your React projects. It seamlessly integrates with the `shadcn/ui` ecosystem but swaps the corporate minimalism for deliberate imperfection.
 
-## React Compiler
+## Why?
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Honestly, I built this because I needed a sketchy, hand-drawn UI for a future personal project of mine. But once it started coming together, it felt too fun to keep to myself. So, here it is-published for anyone who wants to add some deliberate imperfection to their own apps!
 
-## Expanding the ESLint configuration
+## The Secret Sauce
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+cartUnI isn't just about static styles; it's an entire design system built around dynamic personality. For a deep dive into these concepts, check out the [Common Styles](https://sherlockdoyle.github.io/cartUnI/#/docs/common-styles) and [Icons](https://sherlockdoyle.github.io/cartUnI/#/docs/icons) documentation.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* **Organic Shapes**: Using a custom React hook, every single component instance generates its own slightly skewed border radius and rotation. Your UI will look naturally uneven-no two buttons are perfectly alike.
+* **Rich Textures**: Every element supports pure CSS background patterns (like `dots` or `hachure`) and an optional SVG displacement map (via the `noise` prop) for a gritty, tactile feel.
+* **Micro-Interactions**: A suite of custom animations (`boop`, `shiver`, `wobble`) are available as utility classes, ready to be applied permanently or triggered on hover.
+* **Minimalist Icons**: I ditched complex icon fonts and sprite sheets. Hand-drawn, Lucide-inspired icons are just raw SVG path strings that drop straight into a lightweight `<Icon>` wrapper.
+* **Flexible Elements**: Many components accept an `as` prop, allowing you to easily swap the underlying HTML tag (e.g., rendering a Card as a `<section>`) without losing semantic meaning or type safety.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Installation Quick Start
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+For detailed instructions please refer to the full [Installation Guide](https://sherlockdoyle.github.io/cartUnI/#/docs/installation).
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. **Setup shadcn**: Initialize the shadcn CLI (`npx shadcn@latest init`) and configure your `components.json` to include the cartUnI registry:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+   ```json
+   {
+     "$schema": "https://ui.shadcn.com/schema.json",
+     "style": "default",
+     "aliases": {
+        "components": "@/components",
+        "utils": "@/lib/utils"
+     },
+     "registries": {
+        "cartuni": {
+           "url": "https://sherlockdoyle.github.io/cartUnI/registry"
+        }
+     }
+   }
+   ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. **Add Global Styles**: Pull in the base styling tokens, theme variables, and animation keyframes:
+
+   ```bash
+   npx shadcn@latest add cartuni/globalStyles
+   ```
+
+   **You must explicitly declare CSS layers in your `index.html` to prevent production minification bugs. See the docs!**
+
+   ```html
+   <style>
+     @layer theme, animations, base, patterns, components, utilities;
+   </style>
+   ```
+
+3. **Use Components**: Use the CLI to grab whatever you need!
+
+   ```bash
+   npx shadcn@latest add cartuni/button cartuni/card
+   ```
+
+Go forth and make things beautifully sketchy!

@@ -10,9 +10,14 @@ export default function Home({ firstComponent }: { firstComponent: string }) {
   return (
     <>
       <div className={classes.hero}>
-        <Badge variant='primary'>
-          <Icon path={sparkles} /> Zero-dependency & delightfully wonky
-        </Badge>
+        <img
+          className={classes.logo}
+          src={`${import.meta.env.BASE_URL}/favicon.svg`}
+          alt=''
+          onError={e => (e.currentTarget.style.display = 'none')}
+        />
+
+        <Badge variant='primary'>Zero-dependency & delightfully wonky</Badge>
 
         <H1 className={classes.title}>Cartoonish UI components for serious React apps</H1>
 

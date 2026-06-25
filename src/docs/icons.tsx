@@ -27,9 +27,9 @@ export default function Icons() {
           <A href='https://lucide.dev' rel='noopener noreferrer' target='_blank'>
             Lucide Icons
           </A>{' '}
-          - same visual style, same 24x24 grid, same general vibe. The key difference: these were all hand-drawn by the
-          author and simplified to keep path data lean. So they look like Lucide icons, but they're not Lucide icons.
-          Think of them as Lucide's slightly wobbly, hand-crafted cousins.
+          - same visual style, same 24x24 grid, same general vibe. The key difference: these were all hand-drawn by me
+          and simplified to keep path data lean. So they look like Lucide icons, but they're not Lucide icons. Think of
+          them as Lucide's slightly wobbly, hand-crafted cousins.
         </P>
         <Code
           code={`import { Icon, house } from '@/ui/icon/icon';
