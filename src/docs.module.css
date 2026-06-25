@@ -7,10 +7,9 @@
   line-height: 1.5;
 }
 
-.sectionTitle {
-  display: flex;
-  align-items: start;
-  gap: 0.5rem;
+.sectionBadge {
+  vertical-align: 100%;
+  margin-left: 0.5rem;
 }
 
 .preview {
@@ -23,6 +22,10 @@
   &.atStart {
     justify-content: start;
   }
+}
+
+.propsWrapper {
+  overflow-x: auto;
 }
 
 .my {

@@ -24,9 +24,9 @@ export function DocPage({ title, description, children }: { title: string; descr
 export function DocSection({ title, badge, children }: { title: string; badge?: string; children: ReactNode }) {
   return (
     <section>
-      <H3 b className={classes.sectionTitle}>
+      <H3 b>
         {title}
-        {badge && <Badge>{badge}</Badge>}
+        {badge && <Badge className={classes.sectionBadge}>{badge}</Badge>}
       </H3>
       {children}
     </section>
@@ -47,29 +47,31 @@ export function PropsTable({
   items: { name: string; type: string; default?: string; description: string }[];
 }) {
   return (
-    <Table className={classes.my}>
-      <THead>
-        <Tr>
-          <Th>Prop</Th>
-          <Th>Type</Th>
-          <Th>Default</Th>
-          <Th>Description</Th>
-        </Tr>
-      </THead>
-      <TBody>
-        {items.map(item => (
-          <Tr key={item.name}>
-            <Td>
-              <Code code={item.name} inline />
-            </Td>
-            <Td>
-              <Code code={item.type} inline />
-            </Td>
-            <Td>{item.default && <Code code={item.default} inline />}</Td>
-            <Td>{item.description}</Td>
+    <div className={classes.propsWrapper}>
+      <Table className={classes.my}>
+        <THead>
+          <Tr>
+            <Th>Prop</Th>
+            <Th>Type</Th>
+            <Th>Default</Th>
+            <Th>Description</Th>
           </Tr>
-        ))}
-      </TBody>
-    </Table>
+        </THead>
+        <TBody>
+          {items.map(item => (
+            <Tr key={item.name}>
+              <Td>
+                <Code code={item.name} inline />
+              </Td>
+              <Td>
+                <Code code={item.type} inline />
+              </Td>
+              <Td>{item.default && <Code code={item.default} inline />}</Td>
+              <Td>{item.description}</Td>
+            </Tr>
+          ))}
+        </TBody>
+      </Table>
+    </div>
   );
 }

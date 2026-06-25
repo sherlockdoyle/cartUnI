@@ -146,7 +146,7 @@ import { house, shapes } from '@/ui/icon/icon';
           The <Code code='sidebar' inline />, <Code code='sidebarHeader' inline />, and{' '}
           <Code code='sidebarFooter' inline /> props can also accept plain <Code code='ReactNode' inline /> content
           instead of a nav array. So if you want to throw in a search bar, a user profile card, or a dancing banana GIF
-          - go right ahead. We don't judge.
+          - go right ahead. I don't judge.
         </P>
         <Code
           code={`<AppShell

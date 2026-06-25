@@ -77,7 +77,7 @@ export default function TabsDocs() {
     {
       label: 'SimpleOCR',
       value: 'simple-ocr',
-      children: 'Best OCR ever! Actually, it's a lie. Why? Simply...'
+      children: "Best OCR ever! Actually, it's a lie. Why? Simply..."
     },
     {
       label: 'LameLM',

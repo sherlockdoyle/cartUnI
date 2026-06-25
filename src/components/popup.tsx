@@ -123,7 +123,7 @@ export default function PopupDocs() {
           transitions. Keeps it simple, keeps it snappy.
         </P>
         <ComponentPreview>
-          <Tooltip content='Hover detected. You are very curious. We like that.'>
+          <Tooltip content='Hover detected. You are very curious. I like that.'>
             <Button variant='secondary'>Hover me, I dare you</Button>
           </Tooltip>
         </ComponentPreview>

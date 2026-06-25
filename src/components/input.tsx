@@ -39,7 +39,7 @@ export default function InputDocs() {
         <P>For when a single line just won't cut it. Resizable vertically - grab that bottom edge and go wild.</P>
         <ComponentPreview>
           <Label>
-            Explain your project in one sentence (we dare you)
+            Explain your project in one sentence (I dare you)
             <Textarea placeholder="It's basically just... look, it's complicated." />
           </Label>
         </ComponentPreview>
