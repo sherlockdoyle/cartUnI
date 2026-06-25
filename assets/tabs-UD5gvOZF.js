@@ -6,7 +6,7 @@ import{$ as e,D as t,F as n,P as r,S as i,T as a,at as o,i as s,it as c,n as l,n
     {
       label: 'SimpleOCR',
       value: 'simple-ocr',
-      children: 'Best OCR ever! Actually, it's a lie. Why? Simply...'
+      children: "Best OCR ever! Actually, it's a lie. Why? Simply..."
     },
     {
       label: 'LameLM',
