@@ -3,7 +3,7 @@
   "name": "icon",
   "type": "registry:ui",
   "registryDependencies": [
-    "utils"
+    "./utils.json"
   ],
   "files": [
     {

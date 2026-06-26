@@ -3,10 +3,10 @@
   "name": "code",
   "type": "registry:component",
   "registryDependencies": [
-    "useCachedStyles",
-    "utils",
-    "button",
-    "icon"
+    "./useCachedStyles.json",
+    "./utils.json",
+    "./button.json",
+    "./icon.json"
   ],
   "files": [
     {

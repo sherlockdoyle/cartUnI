@@ -3,9 +3,9 @@
   "name": "accordion",
   "type": "registry:ui",
   "registryDependencies": [
-    "useCachedStyles",
-    "utils",
-    "commonClasses"
+    "./useCachedStyles.json",
+    "./utils.json",
+    "./commonClasses.json"
   ],
   "files": [
     {

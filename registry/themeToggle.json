@@ -3,9 +3,9 @@
   "name": "themeToggle",
   "type": "registry:component",
   "registryDependencies": [
-    "useTheme",
-    "button",
-    "icon"
+    "./useTheme.json",
+    "./button.json",
+    "./icon.json"
   ],
   "files": [
     {

@@ -3,10 +3,10 @@
   "name": "tabs",
   "type": "registry:ui",
   "registryDependencies": [
-    "useCachedStyles",
-    "utils",
-    "commonClasses",
-    "button"
+    "./useCachedStyles.json",
+    "./utils.json",
+    "./commonClasses.json",
+    "./button.json"
   ],
   "files": [
     {
