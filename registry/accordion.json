@@ -11,12 +11,14 @@
     {
       "path": "registry/ui/accordion/accordion.module.css",
       "content": "@layer component {\n  .accordionItem {\n    width: 100%;\n    overflow: hidden;\n\n    .summary {\n      display: flex;\n      position: relative;\n      justify-content: space-between;\n      align-items: center;\n      cursor: pointer;\n      border-top-right-radius: 0 !important;\n      border-top-left-radius: 0 !important;\n      background-color: var(--c-muted);\n      padding: 1rem;\n      padding-right: 3rem;\n      font-weight: 900;\n      font-size: 1.0625rem;\n      line-height: 1.25rem;\n      list-style: none;\n\n      &::after {\n        position: absolute;\n        top: 50%;\n        right: 1rem;\n        transform: translateY(calc(-50% - 0.4rem)) rotate(45deg);\n        border-width: 0 0.2rem 0.2rem 0;\n        border-style: solid;\n        border-color: currentColor;\n        border-radius: var(--radius-alt);\n        width: 1.25rem;\n        height: 1.25rem;\n        pointer-events: none;\n        content: '';\n      }\n\n      &:hover {\n        background-color: var(--c-primary);\n      }\n\n      &:focus-visible {\n        outline: none;\n        box-shadow: inset 0 0 0 0.25rem\n          oklch(from color-mix(in oklch, var(--c-primary), var(--c-success)) 0.69 calc(c * 1.3) h);\n        border-radius: var(--radius-alt);\n      }\n    }\n\n    .content {\n      position: relative;\n      padding: 1rem;\n      font-weight: 500;\n    }\n\n    &[aria-disabled] {\n      opacity: 0.5;\n      cursor: not-allowed;\n    }\n\n    &[open] {\n      border-radius: var(--radius-alt);\n\n      .summary {\n        border-bottom: 0.125rem solid var(--c-border);\n        border-radius: var(--radius);\n\n        &::after {\n          transform: translateY(calc(0.3rem - 50%)) rotate(45deg);\n          border-width: 0.2rem 0 0 0.2rem;\n          border-radius: var(--radius);\n        }\n      }\n    }\n  }\n}\n",
-      "type": "registry:style"
+      "type": "registry:style",
+      "target": "ui/accordion/accordion.module.css"
     },
     {
       "path": "registry/ui/accordion/accordion.tsx",
       "content": "import { useCachedStyles } from '@/hook/useCachedStyles';\nimport { getCommonProps, type CommonProps } from '@/lib/utils';\nimport commonClasses from '@/style/common.module.css';\nimport type { ReactNode } from 'react';\nimport classes from './accordion.module.css';\n\nconst ACCORDION_CLASSES = `${commonClasses.base} ${classes.accordionItem}`;\nexport function AccordionItem({\n  title,\n  disabled,\n  style,\n  children,\n  ...props\n}: CommonProps<'details', { title?: ReactNode; disabled?: boolean }>) {\n  const cStyles = useCachedStyles();\n\n  return (\n    <details style={{ ...cStyles, ...style }} {...getCommonProps(props, ACCORDION_CLASSES)} aria-disabled={disabled}>\n      <summary className={classes.summary} inert={disabled}>\n        {title}\n      </summary>\n      <div className={classes.content}>{children}</div>\n    </details>\n  );\n}\n",
-      "type": "registry:ui"
+      "type": "registry:ui",
+      "target": "ui/accordion/accordion.tsx"
     }
   ]
 }

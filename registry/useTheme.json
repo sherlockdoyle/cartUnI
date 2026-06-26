@@ -6,7 +6,8 @@
     {
       "path": "registry/hook/useTheme.ts",
       "content": "import { useEffect, useState } from 'react';\n\ntype Theme = 'system' | 'light' | 'dark';\n\nexport default function useTheme(defaultTheme?: Theme, storageKey: string = 'app-theme') {\n  const themeState = useState<Theme>(() => (localStorage.getItem(storageKey) as Theme) ?? defaultTheme ?? 'system');\n  const [theme] = themeState;\n  useEffect(() => {\n    const root = document.documentElement;\n    if (theme === 'system') {\n      root.removeAttribute('data-theme');\n      localStorage.removeItem(storageKey);\n    } else {\n      root.dataset.theme = theme;\n      localStorage.setItem(storageKey, theme);\n    }\n  }, [theme]);\n\n  return themeState;\n}\n",
-      "type": "registry:hook"
+      "type": "registry:hook",
+      "target": "hook/useTheme.ts"
     }
   ]
 }

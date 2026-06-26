@@ -11,12 +11,14 @@
     {
       "path": "registry/ui/progress/progress.module.css",
       "content": "@layer component {\n  .progress {\n    appearance: none;\n    width: 100%;\n    height: 1.5rem;\n\n    &::-webkit-progress-value,\n    &::-moz-progress-bar {\n      border-radius: var(--radius-alt);\n      background-color: var(--c-success);\n    }\n\n    &:indeterminate {\n      &::-webkit-progress-value,\n      &::-moz-progress-bar {\n        background-image: repeating-linear-gradient(\n          135deg,\n          var(--c-success),\n          var(--c-success) 1rem,\n          transparent 1rem,\n          transparent 2rem\n        );\n        background-color: transparent;\n      }\n    }\n  }\n}\n",
-      "type": "registry:style"
+      "type": "registry:style",
+      "target": "ui/progress/progress.module.css"
     },
     {
       "path": "registry/ui/progress/progress.tsx",
       "content": "import { useCachedStyles } from '@/hook/useCachedStyles';\nimport { getCommonProps, type CommonProps } from '@/lib/utils';\nimport commonClasses from '@/style/common.module.css';\nimport classes from './progress.module.css';\n\nconst PROGRESS_CLASSES = `${commonClasses.base} ${classes.progress}`;\nexport function Progress({ style, ...props }: CommonProps<'progress'>) {\n  const cStyles = useCachedStyles();\n\n  return <progress style={{ ...cStyles, ...style }} {...getCommonProps(props, PROGRESS_CLASSES)} />;\n}\n",
-      "type": "registry:ui"
+      "type": "registry:ui",
+      "target": "ui/progress/progress.tsx"
     }
   ]
 }
