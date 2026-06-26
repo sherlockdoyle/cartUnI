@@ -13,19 +13,22 @@ import{F as e,T as t,at as n,i as r,n as i,nt as a,r as o,rt as s,t as c,tt as l
   <option value="dating">Vibe-coded dating app</option>
 </Select>`})]}),(0,d.jsxs)(o,{title:`Checkbox`,children:[(0,d.jsx)(t,{children:`A chunky checkbox that shows a big "X" when checked. No wishy-washy checkmarks here - just a bold, unapologetic X.`}),(0,d.jsx)(c,{children:(0,d.jsxs)(E,{inline:!0,children:[(0,d.jsx)(y,{}),`I have read the terms (I skimmed them and the font was too small)`]})}),(0,d.jsx)(e,{code:`import { Checkbox, Label } from '@/ui/input/input';
 
-<Label>
-  <Checkbox /> I accept the terms (I didn't read them)
+<Label inline>
+  <Checkbox />
+  I accept the terms (I didn't read them)
 </Label>`})]}),(0,d.jsxs)(o,{title:`Radio`,children:[(0,d.jsxs)(t,{children:[`Radio buttons with a filled dot indicator. Group them with a shared `,(0,d.jsx)(e,{code:`name`,inline:!0}),` prop to make them mutually exclusive.`]}),(0,d.jsx)(c,{children:(0,d.jsxs)(`fieldset`,{style:{border:`none`,width:`100%`},children:[(0,d.jsxs)(E,{inline:!0,children:[(0,d.jsx)(x,{name:`debug`,defaultChecked:!0}),`console.log everything`]}),(0,d.jsxs)(E,{inline:!0,children:[(0,d.jsx)(x,{name:`debug`}),`Actually use a debugger`]}),(0,d.jsxs)(E,{inline:!0,children:[(0,d.jsx)(x,{name:`debug`}),`Use multi-field-sort to sort my bugs by importance`]}),(0,d.jsxs)(E,{inline:!0,children:[(0,d.jsx)(x,{name:`debug`}),`Pray and refresh`]})]})}),(0,d.jsx)(e,{code:`import { Radio, Label } from '@/ui/input/input';
 
-<Label>
-  <Radio name="debug" /> console.log everything
+<Label inline>
+  <Radio name="debug" />
+  console.log everything
 </Label>
-<Label>
-  <Radio name="debug" /> Actually use a debugger
+<Label inline>
+  <Radio name="debug" />
+  Actually use a debugger
 </Label>
 `})]}),(0,d.jsxs)(o,{title:`Switch`,children:[(0,d.jsxs)(t,{children:[`A toggle switch with a sliding thumb. It's a checkbox under the hood with `,(0,d.jsx)(e,{code:`role="switch"`,inline:!0}),`, so screen readers know what's up.`]}),(0,d.jsx)(c,{children:(0,d.jsxs)(E,{inline:!0,children:[(0,d.jsx)(C,{}),`Deadiction mode (for when you're not done but kind of are)`]})}),(0,d.jsx)(e,{code:`import { Switch, Label } from '@/ui/input/input';
 
-<Label>
+<Label inline>
   <Switch />
   Vibe-coding mode
 </Label>`})]}),(0,d.jsxs)(o,{title:`Slider`,children:[(0,d.jsx)(t,{children:`A range slider with a chunky, shadow-casting thumb. Drag it around - it's oddly satisfying.`}),(0,d.jsx)(c,{children:(0,d.jsxs)(E,{children:[`How often do you actually finish a side project? (0 = never, 100 = mineder)`,(0,d.jsx)(T,{defaultValue:42})]})}),(0,d.jsx)(e,{code:`import { Slider } from '@/ui/input/input';
