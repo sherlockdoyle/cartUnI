@@ -3,9 +3,9 @@
   "name": "themeToggle",
   "type": "registry:component",
   "registryDependencies": [
-    "./useTheme.json",
-    "./button.json",
-    "./icon.json"
+    "@cartuni/useTheme",
+    "@cartuni/button",
+    "@cartuni/icon"
   ],
   "files": [
     {

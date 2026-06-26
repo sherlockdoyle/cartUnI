@@ -3,10 +3,10 @@
   "name": "code",
   "type": "registry:component",
   "registryDependencies": [
-    "./useCachedStyles.json",
-    "./utils.json",
-    "./button.json",
-    "./icon.json"
+    "@cartuni/useCachedStyles",
+    "@cartuni/utils",
+    "@cartuni/button",
+    "@cartuni/icon"
   ],
   "files": [
     {

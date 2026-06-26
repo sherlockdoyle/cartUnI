@@ -3,11 +3,11 @@
   "name": "appShell",
   "type": "registry:component",
   "registryDependencies": [
-    "./useCachedStyles.json",
-    "./utils.json",
-    "./commonClasses.json",
-    "./button.json",
-    "./icon.json"
+    "@cartuni/useCachedStyles",
+    "@cartuni/utils",
+    "@cartuni/commonClasses",
+    "@cartuni/button",
+    "@cartuni/icon"
   ],
   "files": [
     {

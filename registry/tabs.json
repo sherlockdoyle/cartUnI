@@ -3,10 +3,10 @@
   "name": "tabs",
   "type": "registry:ui",
   "registryDependencies": [
-    "./useCachedStyles.json",
-    "./utils.json",
-    "./commonClasses.json",
-    "./button.json"
+    "@cartuni/useCachedStyles",
+    "@cartuni/utils",
+    "@cartuni/commonClasses",
+    "@cartuni/button"
   ],
   "files": [
     {

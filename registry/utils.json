@@ -3,7 +3,7 @@
   "name": "utils",
   "type": "registry:lib",
   "registryDependencies": [
-    "./commonClasses.json"
+    "@cartuni/commonClasses"
   ],
   "files": [
     {

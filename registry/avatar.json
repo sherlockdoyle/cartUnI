@@ -3,9 +3,9 @@
   "name": "avatar",
   "type": "registry:ui",
   "registryDependencies": [
-    "./useCachedStyles.json",
-    "./utils.json",
-    "./commonClasses.json"
+    "@cartuni/useCachedStyles",
+    "@cartuni/utils",
+    "@cartuni/commonClasses"
   ],
   "files": [
     {

@@ -18,7 +18,7 @@
     "name": "utils",
     "type": "registry:lib",
     "registryDependencies": [
-      "./commonClasses.json"
+      "@cartuni/commonClasses"
     ],
     "files": [
       "registry/lib/utils.ts"
@@ -42,9 +42,9 @@
     "name": "accordion",
     "type": "registry:ui",
     "registryDependencies": [
-      "./useCachedStyles.json",
-      "./utils.json",
-      "./commonClasses.json"
+      "@cartuni/useCachedStyles",
+      "@cartuni/utils",
+      "@cartuni/commonClasses"
     ],
     "files": [
       "registry/ui/accordion/accordion.module.css",
@@ -55,9 +55,9 @@
     "name": "alert",
     "type": "registry:ui",
     "registryDependencies": [
-      "./useCachedStyles.json",
-      "./utils.json",
-      "./commonClasses.json"
+      "@cartuni/useCachedStyles",
+      "@cartuni/utils",
+      "@cartuni/commonClasses"
     ],
     "files": [
       "registry/ui/alert/alert.module.css",
@@ -68,9 +68,9 @@
     "name": "avatar",
     "type": "registry:ui",
     "registryDependencies": [
-      "./useCachedStyles.json",
-      "./utils.json",
-      "./commonClasses.json"
+      "@cartuni/useCachedStyles",
+      "@cartuni/utils",
+      "@cartuni/commonClasses"
     ],
     "files": [
       "registry/ui/avatar/avatar.module.css",
@@ -81,9 +81,9 @@
     "name": "badge",
     "type": "registry:ui",
     "registryDependencies": [
-      "./useCachedStyles.json",
-      "./utils.json",
-      "./commonClasses.json"
+      "@cartuni/useCachedStyles",
+      "@cartuni/utils",
+      "@cartuni/commonClasses"
     ],
     "files": [
       "registry/ui/badge/badge.module.css",
@@ -94,9 +94,9 @@
     "name": "button",
     "type": "registry:ui",
     "registryDependencies": [
-      "./useCachedStyles.json",
-      "./utils.json",
-      "./commonClasses.json"
+      "@cartuni/useCachedStyles",
+      "@cartuni/utils",
+      "@cartuni/commonClasses"
     ],
     "files": [
       "registry/ui/button/button.module.css",
@@ -107,9 +107,9 @@
     "name": "card",
     "type": "registry:ui",
     "registryDependencies": [
-      "./useCachedStyles.json",
-      "./utils.json",
-      "./commonClasses.json"
+      "@cartuni/useCachedStyles",
+      "@cartuni/utils",
+      "@cartuni/commonClasses"
     ],
     "files": [
       "registry/ui/card/card.module.css",
@@ -129,7 +129,7 @@
     "name": "icon",
     "type": "registry:ui",
     "registryDependencies": [
-      "./utils.json"
+      "@cartuni/utils"
     ],
     "files": [
       "registry/ui/icon/icon.module.css",
@@ -140,9 +140,9 @@
     "name": "input",
     "type": "registry:ui",
     "registryDependencies": [
-      "./useCachedStyles.json",
-      "./utils.json",
-      "./commonClasses.json"
+      "@cartuni/useCachedStyles",
+      "@cartuni/utils",
+      "@cartuni/commonClasses"
     ],
     "files": [
       "registry/ui/input/input.module.css",
@@ -153,9 +153,9 @@
     "name": "popup",
     "type": "registry:ui",
     "registryDependencies": [
-      "./useCachedStyles.json",
-      "./utils.json",
-      "./commonClasses.json"
+      "@cartuni/useCachedStyles",
+      "@cartuni/utils",
+      "@cartuni/commonClasses"
     ],
     "files": [
       "registry/ui/popup/popup.module.css",
@@ -166,9 +166,9 @@
     "name": "progress",
     "type": "registry:ui",
     "registryDependencies": [
-      "./useCachedStyles.json",
-      "./utils.json",
-      "./commonClasses.json"
+      "@cartuni/useCachedStyles",
+      "@cartuni/utils",
+      "@cartuni/commonClasses"
     ],
     "files": [
       "registry/ui/progress/progress.module.css",
@@ -179,9 +179,9 @@
     "name": "table",
     "type": "registry:ui",
     "registryDependencies": [
-      "./useCachedStyles.json",
-      "./utils.json",
-      "./commonClasses.json"
+      "@cartuni/useCachedStyles",
+      "@cartuni/utils",
+      "@cartuni/commonClasses"
     ],
     "files": [
       "registry/ui/table/table.module.css",
@@ -192,10 +192,10 @@
     "name": "tabs",
     "type": "registry:ui",
     "registryDependencies": [
-      "./useCachedStyles.json",
-      "./utils.json",
-      "./commonClasses.json",
-      "./button.json"
+      "@cartuni/useCachedStyles",
+      "@cartuni/utils",
+      "@cartuni/commonClasses",
+      "@cartuni/button"
     ],
     "files": [
       "registry/ui/tabs/tabs.module.css",
@@ -206,9 +206,9 @@
     "name": "typography",
     "type": "registry:ui",
     "registryDependencies": [
-      "./useCachedStyles.json",
-      "./utils.json",
-      "./commonClasses.json"
+      "@cartuni/useCachedStyles",
+      "@cartuni/utils",
+      "@cartuni/commonClasses"
     ],
     "files": [
       "registry/ui/typography/typography.module.css",
@@ -219,11 +219,11 @@
     "name": "appShell",
     "type": "registry:component",
     "registryDependencies": [
-      "./useCachedStyles.json",
-      "./utils.json",
-      "./commonClasses.json",
-      "./button.json",
-      "./icon.json"
+      "@cartuni/useCachedStyles",
+      "@cartuni/utils",
+      "@cartuni/commonClasses",
+      "@cartuni/button",
+      "@cartuni/icon"
     ],
     "files": [
       "registry/component/appShell/appShell.module.css",
@@ -237,10 +237,10 @@
     "name": "code",
     "type": "registry:component",
     "registryDependencies": [
-      "./useCachedStyles.json",
-      "./utils.json",
-      "./button.json",
-      "./icon.json"
+      "@cartuni/useCachedStyles",
+      "@cartuni/utils",
+      "@cartuni/button",
+      "@cartuni/icon"
     ],
     "files": [
       "registry/component/code/code.module.css",
@@ -254,9 +254,9 @@
     "name": "themeToggle",
     "type": "registry:component",
     "registryDependencies": [
-      "./useTheme.json",
-      "./button.json",
-      "./icon.json"
+      "@cartuni/useTheme",
+      "@cartuni/button",
+      "@cartuni/icon"
     ],
     "files": [
       "registry/component/themeToggle.tsx"
