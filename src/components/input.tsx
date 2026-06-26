@@ -93,8 +93,9 @@ export default function InputDocs() {
         <Code
           code={`import { Checkbox, Label } from '@/ui/input/input';
 
-<Label>
-  <Checkbox /> I accept the terms (I didn't read them)
+<Label inline>
+  <Checkbox />
+  I accept the terms (I didn't read them)
 </Label>`}
         />
       </DocSection>
@@ -127,11 +128,13 @@ export default function InputDocs() {
         <Code
           code={`import { Radio, Label } from '@/ui/input/input';
 
-<Label>
-  <Radio name="debug" /> console.log everything
+<Label inline>
+  <Radio name="debug" />
+  console.log everything
 </Label>
-<Label>
-  <Radio name="debug" /> Actually use a debugger
+<Label inline>
+  <Radio name="debug" />
+  Actually use a debugger
 </Label>
 `}
         />
@@ -151,7 +154,7 @@ export default function InputDocs() {
         <Code
           code={`import { Switch, Label } from '@/ui/input/input';
 
-<Label>
+<Label inline>
   <Switch />
   Vibe-coding mode
 </Label>`}

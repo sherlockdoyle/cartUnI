@@ -24,28 +24,36 @@ cartUnI isn't just about static styles; it's an entire design system built aroun
 
 For detailed instructions please refer to the full [Installation Guide](https://sherlockdoyle.github.io/cartUnI/#/docs/installation).
 
-1. **Setup shadcn**: Initialize the shadcn CLI (`npx shadcn@latest init`) and configure your `components.json` to include the cartUnI registry:
+1. **Configure Path Aliases**: Set up the `@` path alias in `tsconfig.json` and `vite.config.ts` so shadcn can resolve imports.
+
+2. **Create `components.json`**: We bypass `shadcn init` since cartUnI doesn't use Tailwind. Create `components.json` in your project root:
 
    ```json
    {
      "$schema": "https://ui.shadcn.com/schema.json",
      "style": "default",
+     "rsc": false,
+     "tsx": true,
+     "tailwind": {
+       "config": "",
+       "css": "",
+       "baseColor": "",
+       "cssVariables": false
+     },
      "aliases": {
-        "components": "@/components",
-        "utils": "@/lib/utils"
+       "components": "@/components",
+       "utils": "@/lib/utils"
      },
      "registries": {
-        "cartuni": {
-           "url": "https://sherlockdoyle.github.io/cartUnI/registry"
-        }
+       "@cartuni": "https://sherlockdoyle.github.io/cartUnI/registry/{name}.json"
      }
    }
    ```
 
-2. **Add Global Styles**: Pull in the base styling tokens, theme variables, and animation keyframes:
+3. **Add Global Styles**: Pull in the base styling tokens, theme variables, and animation keyframes:
 
    ```bash
-   npx shadcn@latest add cartuni/globalStyles
+   npx shadcn@latest add @cartuni/globalStyles
    ```
 
    **You must explicitly declare CSS layers in your `index.html` to prevent production minification bugs. See the docs!**
@@ -56,10 +64,10 @@ For detailed instructions please refer to the full [Installation Guide](https://
    </style>
    ```
 
-3. **Use Components**: Use the CLI to grab whatever you need!
+4. **Use Components**: Use the CLI to grab whatever you need!
 
    ```bash
-   npx shadcn@latest add cartuni/button cartuni/card
+   npx shadcn@latest add @cartuni/button @cartuni/card
    ```
 
 Go forth and make things beautifully sketchy!

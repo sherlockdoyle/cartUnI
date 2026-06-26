@@ -9,31 +9,54 @@ export default function Installation() {
       title='Installation'
       description="Let's get this party started! Here's how to install cartUnI and make your UI look like a cartoon masterpiece."
     >
-      <DocSection title='1. Initialize shadcn'>
+      <DocSection title='1. Configure Path Aliases'>
         <P>
-          cartUnI rides on top of the shadcn/ui component system. First, fire up the shadcn CLI in your project to get
-          the basic plumbing in place. Don't worry, we'll make it fun soon.
+          cartUnI rides on top of the shadcn/ui component system, but we don't use Tailwind - so we need to set up the{' '}
+          <Code code='@' inline /> path alias manually. Tell TypeScript where <Code code='@/' inline /> actually points:
         </P>
-        <Code code='npx shadcn@latest init' />
+        <Code
+          code={`// tsconfig.app.json or tsconfig.json
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}`}
+        />
+        <P>Then configure your Vite project so shadcn can resolve imports without having an existential crisis:</P>
+        <Code
+          code={`// vite.config.ts
+export default defineConfig({
+  resolve: { tsconfigPaths: true },
+})`}
+        />
       </DocSection>
 
-      <DocSection title='2. Configure the Registry'>
+      <DocSection title='2. Create components.json'>
         <P>
-          Point your <Code code='components.json' inline /> to the cartUnI registry so you can pull components with the
-          shadcn CLI. Add the <Code code='registry' inline /> field:
+          We bypass <Code code='shadcn init' inline /> entirely since cartUnI doesn't use Tailwind (we're too cool for
+          that). Instead, create a <Code code='components.json' inline /> file in your project root with the following
+          config. Yes, the empty Tailwind fields are there just to keep the CLI from throwing a tantrum:
         </P>
         <Code
           code={`{
   "$schema": "https://ui.shadcn.com/schema.json",
   "style": "default",
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "",
+    "baseColor": "",
+    "cssVariables": false
+  },
   "aliases": {
     "components": "@/components",
     "utils": "@/lib/utils"
   },
   "registries": {
-    "cartuni": {
-      "url": "https://sherlockdoyle.github.io/cartUnI/registry"
-    }
+    "@cartuni": "https://sherlockdoyle.github.io/cartUnI/registry/{name}.json"
   }
 }`}
         />
@@ -44,7 +67,7 @@ export default function Installation() {
           Add cartUnI's global stylesheet to your project. This brings in all the wobbly, cartoonish design tokens - the
           colors, the hand-drawn borders, and the bouncy animations.
         </P>
-        <Code code='npx shadcn@latest add cartuni/globalStyles' />
+        <Code code='npx shadcn@latest add @cartuni/globalStyles' />
         <P>Import it at the top of your entry file:</P>
         <Code
           code={`// main.tsx or index.tsx
@@ -126,7 +149,7 @@ import '@/style/global.css';`}
           cartUnI uses an SVG noise filter to give components that hand-drawn, slightly crinkly look. If you plan to use
           the <Code code='noise' inline /> prop on any component, first add the filter to your project:
         </P>
-        <Code code='npx shadcn@latest add cartuni/filter' />
+        <Code code='npx shadcn@latest add @cartuni/filter' />
         <P>
           Then, render the <Code code='Filter' inline /> component once at the root of your app:
         </P>
@@ -152,7 +175,7 @@ createRoot(document.getElementById('root')!).render(
           Now grab the components you need! Use the standard shadcn CLI and they'll land right in your project, ready to
           wobble.
         </P>
-        <Code code='npx shadcn@latest add cartuni/button cartuni/card cartuni/input' />
+        <Code code='npx shadcn@latest add @cartuni/button @cartuni/card @cartuni/input' />
         <P>That's it! You're all set. Go forth and make things beautifully wonky.</P>
       </DocSection>
     </DocPage>

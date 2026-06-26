@@ -75,11 +75,14 @@ async function buildRegistry() {
   await fs.mkdir(PUBLIC_REGISTRY_DIR, { recursive: true });
 
   for (const comp of components) {
+    comp.registryDependencies = comp.registryDependencies?.map(d => `@cartuni/${d}`);
+
     const filesData = [];
     for (const file of comp.files) {
       try {
         const content = await fs.readFile(file, 'utf-8');
-        filesData.push({ path: file, content, type: file.endsWith('.css') ? 'registry:style' : comp.type });
+        const target = path.relative(REGISTRY_DIR, file);
+        filesData.push({ path: file, content, type: file.endsWith('.css') ? 'registry:style' : comp.type, target });
       } catch (err) {
         console.warn(`Warning: Could not read ${file}`);
       }
