@@ -4,7 +4,7 @@ import { Badge } from '@/ui/badge/badge';
 import { Button } from '@/ui/button/button';
 import { Card } from '@/ui/card/card';
 import { Icon, info, triangleAlert } from '@/ui/icon/icon';
-import { P } from '@/ui/typography/typography';
+import { A, P } from '@/ui/typography/typography';
 import type { ComponentProps } from 'react';
 import { ComponentPreview, DocPage, DocSection, PropsTable } from '../doc-page';
 import classes from '../docs.module.css';
@@ -141,17 +141,28 @@ export default function CommonStyles() {
         <P>
           The hook generates two sets of random border-radius values (<Code code='--radius' inline /> and{' '}
           <Code code='--radius-alt' inline />
-          ), plus a tiny random <Code code='transform' inline /> (a hair of rotation and skew), all cached by React{' '}
-          <Code code='useId()' inline /> so a component keeps its shape across re-renders. On hover or focus, many
-          components swap to the alternate radius - giving that playful &ldquo;squiggle&rdquo; feel.
+          ), plus a tiny random <Code code='transform' inline /> (a hair of rotation) and a{' '}
+          <Code code='transformStyle' inline /> of <Code code='preserve-3d' inline /> to keep browser renderers from
+          flattening the transform stack. All of it is cached by React <Code code='useId()' inline /> so a component
+          keeps its shape across re-renders. On hover or focus, many components swap to the alternate radius - giving
+          that playful &ldquo;squiggle&rdquo; feel.
         </P>
         <Alert title='Heads up about the transform' icon={<Icon path={triangleAlert} />} variant='warn'>
           Every component that goes through <Code code='useCachedStyles' inline /> gets its own{' '}
           <Code code='transform' inline />, and CSS transforms create a new stacking context. On pages with{' '}
           <em>lots</em> of components, this can cause unexpected <Code code='z-index' inline /> layering and may bump up
-          GPU memory usage on lower-end devices. If that's biting you, just open{' '}
-          <Code code='@/hook/useCachedStyles.ts' inline /> and delete the <Code code='transform' inline /> line from the
-          returned object - no hard feelings.
+          GPU memory usage on lower-end devices. The <Code code='transformStyle: "preserve-3d"' inline /> bit is there
+          as a small browser-compatibility safeguard, so rotated layers keep behaving sensibly in browsers that get
+          fussy about transform stacks (see{' '}
+          <A
+            href='https://www.reddit.com/r/firefox/comments/1upcru4/bug_in_firefox_152_css_rotations_make_components/'
+            target='_blank'
+          >
+            this
+          </A>{' '}
+          for one). If that's biting you, just open <Code code='@/hook/useCachedStyles.ts' inline /> and delete the{' '}
+          <Code code='transformStyle' inline /> and <Code code='rotate' inline /> line from the returned object - no
+          hard feelings.
         </Alert>
       </DocSection>
 
@@ -161,6 +172,12 @@ export default function CommonStyles() {
           hover-triggered variants. Each animation has both an always-on version and a <Code code=':hover' inline />{' '}
           version.
         </P>
+        <Alert variant='primary'>
+          Since this is a cartoony library, it naturally comes with a bit of bounce and wiggle. The main animation
+          classes respect <Code code='prefers-reduced-motion' inline /> and stay dormant when that setting is enabled,
+          so the full-on boops and shivers will not show up. That said, some interactions - like hover feedback on
+          buttons - still make slight visual changes even though they are not animated.
+        </Alert>
         <ComponentPreview>
           {['boop', 'float-tilt', 'jump', 'shiver', 'squiggle', 'squish', 'tiptoe', 'wobble'].map(name => (
             <Badge key={name} className={name}>

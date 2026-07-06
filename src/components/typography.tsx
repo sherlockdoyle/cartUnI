@@ -90,7 +90,7 @@ export default function TypographyDocs() {
             <A href='https://github.com/sherlockdoyle/cartUnI' target='_blank'>
               cartUnI on GitHub
             </A>{' '}
-            (and maybe leave a, if the sketchy borders spoke to you).
+            (and maybe leave a star, if the sketchy borders spoke to you).
           </P>
         </ComponentPreview>
         <Code
