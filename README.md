@@ -4,7 +4,7 @@
 
 *AI generated content follows. [Read the docs](https://sherlockdoyle.github.io/cartUnI/) for a more handcrafted version.*
 
-cartUnI is a zero-dependency component library designed to inject a playful, sketched-on-paper vibe into your React projects. It seamlessly integrates with the `shadcn/ui` ecosystem but swaps the corporate minimalism for deliberate imperfection.
+cartUnI is a zero-dependency React component library designed to inject a playful, sketched-on-paper vibe into your React projects. It seamlessly integrates with the `shadcn/ui` ecosystem but swaps the corporate minimalism for deliberate imperfection.
 
 ## Why?
 
