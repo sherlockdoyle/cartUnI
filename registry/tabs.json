@@ -12,7 +12,7 @@
     {
       "path": "registry/ui/tabs/tabs.module.css",
       "content": "@layer component {\n  .tabsWrapper {\n    width: 100%;\n    overflow: hidden;\n\n    .tabsList {\n      display: flex;\n      flex-wrap: wrap;\n      gap: 0.5rem;\n      border-bottom: 0.125rem solid var(--c-border);\n      border-radius: var(--radius-alt);\n      border-top-right-radius: 0;\n      border-top-left-radius: 0;\n      background-color: var(--c-muted);\n      padding: 0.5rem;\n\n      .tabButton {\n        padding-block: 0.5rem;\n        font-weight: 700;\n        font-size: 1rem;\n        letter-spacing: 0.025em;\n      }\n    }\n\n    .tabPanel {\n      padding: 1rem;\n    }\n  }\n}\n",
-      "type": "registry:style",
+      "type": "registry:file",
       "target": "ui/tabs/tabs.module.css"
     },
     {

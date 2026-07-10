@@ -7,7 +7,7 @@
     {
       "path": "registry/ui/filter/filter.module.css",
       "content": ".filter {\n  position: absolute;\n  width: 0;\n  height: 0;\n  pointer-events: none;\n}\n",
-      "type": "registry:style",
+      "type": "registry:file",
       "target": "ui/filter/filter.module.css"
     },
     {

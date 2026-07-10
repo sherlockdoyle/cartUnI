@@ -11,7 +11,7 @@
     {
       "path": "registry/ui/badge/badge.module.css",
       "content": "@layer component {\n  .badge {\n    background-color: var(--c-variant);\n    padding: 0.125rem 0.75rem;\n    font-weight: 900;\n    font-size: 0.75rem;\n    line-height: 1rem;\n    letter-spacing: 0.1em;\n  }\n}\n",
-      "type": "registry:style",
+      "type": "registry:file",
       "target": "ui/badge/badge.module.css"
     },
     {

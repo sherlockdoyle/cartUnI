@@ -11,7 +11,7 @@
     {
       "path": "registry/ui/progress/progress.module.css",
       "content": "@layer component {\n  .progress {\n    appearance: none;\n    width: 100%;\n    height: 1.5rem;\n\n    &::-webkit-progress-value,\n    &::-moz-progress-bar {\n      border-radius: var(--radius-alt);\n      background-color: var(--c-success);\n    }\n\n    &:indeterminate {\n      &::-webkit-progress-value,\n      &::-moz-progress-bar {\n        background-image: repeating-linear-gradient(\n          135deg,\n          var(--c-success),\n          var(--c-success) 1rem,\n          transparent 1rem,\n          transparent 2rem\n        );\n        background-color: transparent;\n      }\n    }\n  }\n}\n",
-      "type": "registry:style",
+      "type": "registry:file",
       "target": "ui/progress/progress.module.css"
     },
     {

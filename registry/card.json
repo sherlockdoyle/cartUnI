@@ -11,7 +11,7 @@
     {
       "path": "registry/ui/card/card.module.css",
       "content": "@layer components {\n  .card {\n    display: flex;\n    flex-direction: column;\n    gap: 1rem;\n    background-color: var(--c-bg);\n    padding: 1.5rem;\n    color: var(--c-text);\n  }\n\n  .cardHeader,\n  .cardFooter {\n    display: flex;\n    position: relative;\n    gap: 0.375rem;\n  }\n\n  .cardHeader {\n    flex-direction: column;\n  }\n\n  .cardTitle {\n    font-weight: 900;\n    font-size: 1.5rem;\n    line-height: 2rem;\n    letter-spacing: -0.025em;\n  }\n\n  .cardDescription {\n    opacity: 0.8;\n    font-weight: 500;\n    font-size: 0.875rem;\n    line-height: 1.25rem;\n  }\n\n  .cardContent {\n    position: relative;\n    flex: 1 1 0%;\n  }\n\n  .cardFooter {\n    justify-content: flex-end;\n  }\n}\n",
-      "type": "registry:style",
+      "type": "registry:file",
       "target": "ui/card/card.module.css"
     },
     {

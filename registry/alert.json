@@ -11,7 +11,7 @@
     {
       "path": "registry/ui/alert/alert.module.css",
       "content": "@layer component {\n  .alert {\n    display: flex;\n    align-items: flex-start;\n    gap: 1rem;\n    background-color: color-mix(in oklch, var(--c-variant) 70%, light-dark(white, black));\n    padding: 1rem;\n    width: 100%;\n    color: color-mix(in oklch, var(--c-variant) 30%, light-dark(black, white));\n\n    .icon {\n      position: relative;\n      flex-shrink: 0;\n      width: 1.5rem;\n      height: 1.5rem;\n    }\n\n    .content {\n      display: flex;\n      position: relative;\n      flex-direction: column;\n      gap: 0.25rem;\n\n      .title {\n        margin: 0;\n        font-weight: 900;\n        letter-spacing: 0.025em;\n      }\n\n      .body {\n        opacity: 0.9;\n        font-weight: 500;\n        font-size: 0.875rem;\n        line-height: 1.25rem;\n      }\n    }\n  }\n}\n",
-      "type": "registry:style",
+      "type": "registry:file",
       "target": "ui/alert/alert.module.css"
     },
     {

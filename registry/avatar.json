@@ -11,7 +11,7 @@
     {
       "path": "registry/ui/avatar/avatar.module.css",
       "content": "@layer component {\n  .avatar {\n    display: flex;\n    flex-shrink: 0;\n    justify-content: center;\n    align-items: center;\n    background-color: var(--c-muted);\n    width: 3rem;\n    height: 3rem;\n    overflow: hidden;\n\n    .img {\n      position: relative;\n      width: 100%;\n      height: 100%;\n      object-fit: cover;\n    }\n\n    .fallback {\n      position: relative;\n      font-weight: 900;\n      font-size: 1.25rem;\n      line-height: 1.75rem;\n    }\n  }\n}\n",
-      "type": "registry:style",
+      "type": "registry:file",
       "target": "ui/avatar/avatar.module.css"
     },
     {
