@@ -22,9 +22,9 @@ cartUnI isn't just about static styles; it's an entire design system built aroun
 
 ## Installation Quick Start
 
-For detailed instructions please refer to the full [Installation Guide](https://sherlockdoyle.github.io/cartUnI/#/docs/installation).
+For detailed instructions please refer to the full [Installation Guide](https://sherlockdoyle.github.io/cartUnI/#/docs/installation). Both **TypeScript** and **JavaScript** are supported - the guide has a toggle to switch between the two.
 
-1. **Configure Path Aliases**: Set up the `@` path alias in `tsconfig.json` and `vite.config.ts` so shadcn can resolve imports.
+1. **Configure Path Aliases**: Set up the `@` path alias in `tsconfig.json` (or `jsconfig.json` for JS) and your Vite config so shadcn can resolve imports.
 
 2. **Create `components.json`**: We bypass `shadcn init` since cartUnI doesn't use Tailwind. Create `components.json` in your project root:
 
@@ -33,7 +33,7 @@ For detailed instructions please refer to the full [Installation Guide](https://
      "$schema": "https://ui.shadcn.com/schema.json",
      "style": "default",
      "rsc": false,
-     "tsx": true,
+     "tsx": true,  // set to false for JavaScript
      "tailwind": {
        "config": "",
        "css": "",

@@ -50,3 +50,57 @@
     font-size: 2rem;
   }
 }
+
+.colorTable {
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+
+  th:first-child {
+    padding: 0.2rem 0.1rem;
+    width: 20%;
+    font-size: 0.875rem;
+    text-align: left;
+    white-space: nowrap;
+
+    @media (max-width: 32rem) {
+      font-size: 0.75rem;
+    }
+    @media (min-width: 48rem) {
+      padding-right: 0.5rem;
+      text-align: right;
+    }
+  }
+
+  td {
+    line-height: 0;
+  }
+
+  :is(th, td):not(:first-child) {
+    width: 5.714285714285714%; /* (100 - 20) / 14 */
+  }
+
+  thead {
+    position: sticky;
+    top: -1rem;
+
+    th {
+      background-color: var(--c-bg);
+      padding: 0.3rem 0;
+      overflow: hidden;
+      font-size: 0.75rem;
+      white-space: nowrap;
+    }
+  }
+
+  button {
+    cursor: pointer;
+    border: none;
+    background-color: var(--color);
+    padding: 0;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    color: contrast-color(var(--color));
+  }
+}

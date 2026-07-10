@@ -1,23 +1,61 @@
 import { Code } from '@/component/code/code';
 import { AccordionItem } from '@/ui/accordion/accordion';
+import { Alert } from '@/ui/alert/alert';
+import { Icon, info } from '@/ui/icon/icon';
+import { Label, Switch } from '@/ui/input/input';
 import { A, Li, P, Ul } from '@/ui/typography/typography';
+import { useState } from 'react';
 import { DocPage, DocSection } from '../doc-page';
 
 export default function Installation() {
+  const [isJs, setIsJs] = useState(false);
+  const e = isJs ? 'j' : 't';
+
   return (
     <DocPage
       title='Installation'
       description="Let's get this party started! Here's how to install cartUnI and make your UI look like a cartoon masterpiece."
     >
+      <P>
+        cartUnI works with both TypeScript and JavaScript! Toggle the switch below to flip the instructions. The
+        components, styles, and CLI commands are identical either way - the only things that change are a config flag
+        and a couple of file extensions. Choose your weapon:
+      </P>
+      <Label inline>
+        <Switch checked={isJs} onChange={e => setIsJs(e.target.checked)} />
+        I'm using JavaScript
+      </Label>
+      {isJs && (
+        <Alert title='JavaScript mode activated' icon={<Icon path={info} />} variant='primary'>
+          You're a brave soul. The CLI will generate <Code code='.jsx' inline /> files and use a{' '}
+          <Code code='jsconfig.json' inline /> for path aliases. Everything else is the same. I pinky promise.
+        </Alert>
+      )}
+
       <DocSection title='1. Configure Path Aliases'>
         <P>
           cartUnI rides on top of the shadcn/ui component system, but we don't use Tailwind - so we need to set up the{' '}
-          <Code code='@' inline /> path alias manually. Tell TypeScript where <Code code='@/' inline /> actually points:
+          <Code code='@' inline /> path alias manually.{' '}
+          {isJs ? (
+            <>
+              Create a <Code code='jsconfig.json' inline /> in your project root
+            </>
+          ) : (
+            <>
+              Tell TypeScript where <Code code='@/' inline /> actually points
+            </>
+          )}
+          :
         </P>
         <Code
-          code={`// tsconfig.app.json or tsconfig.json
+          code={`// ${isJs ? 'j' : 'tsconfig.app.json or t'}sconfig.json
 {
-  "compilerOptions": {
+  "compilerOptions": {${
+    isJs
+      ? `
+    "baseUrl": ".",`
+      : ''
+  }
     "paths": {
       "@/*": ["./src/*"]
     }
@@ -26,9 +64,17 @@ export default function Installation() {
         />
         <P>Then configure your Vite project so shadcn can resolve imports without having an existential crisis:</P>
         <Code
-          code={`// vite.config.ts
+          code={`// vite.config.${e}s
 export default defineConfig({
-  resolve: { tsconfigPaths: true },
+  resolve: {
+    ${
+      isJs
+        ? `alias: {
+      '@': path.resolve(__dirname, './src'),
+    }`
+        : 'tsconfigPaths: true'
+    },
+  },
 })`}
         />
       </DocSection>
@@ -44,7 +90,7 @@ export default defineConfig({
   "$schema": "https://ui.shadcn.com/schema.json",
   "style": "default",
   "rsc": false,
-  "tsx": true,
+  "tsx": ${!isJs},
   "tailwind": {
     "config": "",
     "css": "",
@@ -60,6 +106,14 @@ export default defineConfig({
   }
 }`}
         />
+        {isJs && (
+          <P>
+            The <Code code='"tsx": false' inline /> flag is the magic switch - the non-component kind. It tells the
+            shadcn CLI to generate <Code code='.jsx' inline /> files instead of <Code code='.tsx' inline />. Forget to
+            flip it and you'll get TypeScript files in a JavaScript project, which will probably still work, but will
+            also silently judge you.
+          </P>
+        )}
       </DocSection>
 
       <DocSection title='3. Add the Base Styles'>
@@ -70,7 +124,7 @@ export default defineConfig({
         <Code code='npx shadcn@latest add @cartuni/globalStyles' />
         <P>Import it at the top of your entry file:</P>
         <Code
-          code={`// main.tsx or index.tsx
+          code={`// main.${e}sx or index.${e}sx
 import '@/style/global.css';`}
         />
         <P>
@@ -104,38 +158,38 @@ import '@/style/global.css';`}
         <AccordionItem title="If you're into build-tool drama, you can read the extensive lore here">
           <Ul randomListStyle>
             <Li>
-              <A href='https://github.com/vitejs/vite/issues/22705' target='_blank' rel='noreferrer'>
+              <A href='https://github.com/vitejs/vite/issues/22705' rel='noreferrer' target='_blank'>
                 vitejs/vite #22705: CSS `@layer` order declaration is dropped by minification
               </A>
             </Li>
             <Li>
-              <A href='https://github.com/vitejs/vite/discussions/17337' target='_blank' rel='noreferrer'>
+              <A href='https://github.com/vitejs/vite/discussions/17337' rel='noreferrer' target='_blank'>
                 vitejs/vite #17337: CSS layer order of precedence changes after vite build
               </A>
             </Li>
             <Li>
-              <A href='https://github.com/vitejs/vite/issues/21903' target='_blank' rel='noreferrer'>
+              <A href='https://github.com/vitejs/vite/issues/21903' rel='noreferrer' target='_blank'>
                 vitejs/vite #21903: CSS cascade order differs between dev and production when using auto-imported
                 component styles
               </A>
             </Li>
             <Li>
-              <A href='https://github.com/vuetifyjs/vuetify/issues/22752' target='_blank' rel='noreferrer'>
+              <A href='https://github.com/vuetifyjs/vuetify/issues/22752' rel='noreferrer' target='_blank'>
                 vuetifyjs/vuetify #22752: Vite 8 Build create wrong CSS Layering
               </A>
             </Li>
             <Li>
-              <A href='https://github.com/vitejs/vite/issues/22301' target='_blank' rel='noreferrer'>
+              <A href='https://github.com/vitejs/vite/issues/22301' rel='noreferrer' target='_blank'>
                 vitejs/vite #22301: CSS bundle order is incorrect
               </A>
             </Li>
             <Li>
-              <A href='https://github.com/vitejs/vite/issues/22597' target='_blank' rel='noreferrer'>
+              <A href='https://github.com/vitejs/vite/issues/22597' rel='noreferrer' target='_blank'>
                 vitejs/vite #22597: CSS cascade order differs between dev and production with lib build
               </A>
             </Li>
             <Li>
-              <A href='https://github.com/vitejs/vite/issues/4890' target='_blank' rel='noreferrer'>
+              <A href='https://github.com/vitejs/vite/issues/4890' rel='noreferrer' target='_blank'>
                 vitejs/vite #4890: The order of <Code code='<style>' inline /> and{' '}
                 <Code code='<link rel="stylesheet">' inline /> changes after build
               </A>
@@ -154,10 +208,10 @@ import '@/style/global.css';`}
           Then, render the <Code code='Filter' inline /> component once at the root of your app:
         </P>
         <Code
-          code={`// main.tsx
+          code={`// main.${e}sx
 import Filter from '@/ui/filter/filter';
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById('root')${isJs ? '' : '!'}).render(
   <StrictMode>
     <Filter />
     <App />

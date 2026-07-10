@@ -69,6 +69,11 @@ export default function Icons() {
           Here are all the icons currently available. Each one is hand-drawn to match the cartoonish vibe. Click to copy
           the name!
         </P>
+        <P>
+          The set is intentionally small - I add icons as I personally need them, so don't expect a 2,000-icon avalanche
+          any time soon. If you need something that isn't here, the <em>Adding Your Own</em> section below has you
+          covered.
+        </P>
         <ComponentPreview>
           {iconEntries.map(([name, path]) => (
             <Button

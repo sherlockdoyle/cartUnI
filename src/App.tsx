@@ -1,10 +1,11 @@
 import { AppShell } from '@/component/appShell/appShell';
 import { ThemeToggle } from '@/component/themeToggle';
-import { component, externalLink, house, package_, paintbrush, shapes } from '@/ui/icon/icon';
+import { component, externalLink, house, package_, paintbrush, shapes, swatchBook } from '@/ui/icon/icon';
 import { lazy, Suspense } from 'react';
 import { Route, Router, Switch } from 'wouter';
 import { useHashLocation } from 'wouter/use-hash-location';
 import classes from './app.module.css';
+import Colors from './docs/colors';
 import CommonStyles from './docs/common-styles';
 import Home from './docs/home';
 import Icons from './docs/icons';
@@ -34,6 +35,7 @@ function App() {
           { type: 'header', label: 'Getting Started' },
           { iconPath: package_, label: 'Installation', href: '/docs/installation' },
           { iconPath: paintbrush, label: 'Common Styles', href: '/docs/common-styles' },
+          { iconPath: swatchBook, label: 'Colors', href: '/docs/colors' },
           { iconPath: shapes, label: 'Icons', href: '/docs/icons' },
           { type: 'header', label: 'Components' },
           ...componentPages.map(({ titleCaseName, fileName }) => ({
@@ -61,6 +63,9 @@ function App() {
             </Route>
             <Route path='/docs/common-styles'>
               <CommonStyles />
+            </Route>
+            <Route path='/docs/colors'>
+              <Colors />
             </Route>
             <Route path='/docs/icons'>
               <Icons />

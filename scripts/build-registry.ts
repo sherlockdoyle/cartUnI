@@ -82,7 +82,8 @@ async function buildRegistry() {
       try {
         const content = await fs.readFile(file, 'utf-8');
         const target = path.relative(REGISTRY_DIR, file);
-        filesData.push({ path: file, content, type: file.endsWith('.css') ? 'registry:style' : comp.type, target });
+        // For .css we use registry:file instead of registry:style because when tsx: false in components.json, shadcn tries to parse all files as typescript except those which are registry:file or registry:item.
+        filesData.push({ path: file, content, type: file.endsWith('.css') ? 'registry:file' : comp.type, target });
       } catch (err) {
         console.warn(`Warning: Could not read ${file}`);
       }
