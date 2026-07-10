@@ -28,7 +28,7 @@ For detailed instructions please refer to the full [Installation Guide](https://
 
 2. **Create `components.json`**: We bypass `shadcn init` since cartUnI doesn't use Tailwind. Create `components.json` in your project root:
 
-   ```json
+   ```jsonc
    {
      "$schema": "https://ui.shadcn.com/schema.json",
      "style": "default",
