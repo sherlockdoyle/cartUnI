@@ -11,7 +11,7 @@ export default function CardDocs() {
       description='A chunky, bordered container for grouping related content. Think of it as a friendly box that gives your content a hug.'
     >
       <DocSection title='Installation'>
-        <Code code='npx shadcn@latest add cartuni/card' />
+        <Code code='npx shadcn@latest add @cartuni/card' />
       </DocSection>
 
       <DocSection title='Usage'>

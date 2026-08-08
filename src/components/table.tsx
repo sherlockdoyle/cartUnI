@@ -7,7 +7,7 @@ export default function TableDocs() {
   return (
     <DocPage title='Table' description="Good ol' HTML tables, but make them wobbly and wonderful.">
       <DocSection title='Installation'>
-        <Code code='npx shadcn@latest add cartuni/table' />
+        <Code code='npx shadcn@latest add @cartuni/table' />
       </DocSection>
 
       <DocSection title='Usage'>

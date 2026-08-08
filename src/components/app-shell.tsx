@@ -23,7 +23,7 @@ export default function AppShellDocs() {
         of choice - it's pretty self-contained.
       </Alert>
       <DocSection title='Installation'>
-        <Code code='npx shadcn@latest add cartuni/app-shell' />
+        <Code code='npx shadcn@latest add @cartuni/appShell' />
       </DocSection>
 
       <DocSection title='Usage'>

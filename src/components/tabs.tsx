@@ -11,7 +11,7 @@ export default function TabsDocs() {
       description="Organize content into switchable panels. Click a tab, see its content. Revolutionary stuff. Uses proper ARIA roles and keyboard navigation, because we're classy like that."
     >
       <DocSection title='Installation'>
-        <Code code='npx shadcn@latest add cartuni/tabs' />
+        <Code code='npx shadcn@latest add @cartuni/tabs' />
       </DocSection>
 
       <DocSection title='Usage'>

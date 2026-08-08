@@ -11,7 +11,7 @@ export default function ThemeToggleDocs() {
       description='A one-click button that cycles through light, dark, and system themes. Three modes, one button, zero drama.'
     >
       <DocSection title='Installation'>
-        <Code code='npx shadcn@latest add cartuni/theme-toggle' />
+        <Code code='npx shadcn@latest add @cartuni/themeToggle' />
       </DocSection>
 
       <DocSection title='Usage'>

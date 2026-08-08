@@ -12,7 +12,7 @@ export default function PopupDocs() {
       description='Three flavors of overlay - Dialog (big and modal), Popover (anchored and floaty), and Tooltip (smol and informational). All built on native browser APIs!'
     >
       <DocSection title='Installation'>
-        <Code code='npx shadcn@latest add cartuni/popup' />
+        <Code code='npx shadcn@latest add @cartuni/popup' />
       </DocSection>
 
       <DocSection title='Dialog'>

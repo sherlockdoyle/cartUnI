@@ -11,7 +11,7 @@ export default function TypographyDocs() {
       description='All your favorite HTML text elements - headings, paragraphs, links, lists, blockquotes, and more - styled with the cartoonish cartUnI flair. No more boring default browser typography!'
     >
       <DocSection title='Installation'>
-        <Code code='npx shadcn@latest add cartuni/typography' />
+        <Code code='npx shadcn@latest add @cartuni/typography' />
       </DocSection>
 
       <DocSection title='Headings'>

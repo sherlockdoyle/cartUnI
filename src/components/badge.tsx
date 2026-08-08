@@ -10,7 +10,7 @@ export default function BadgeDocs() {
       description='A tiny label that packs a punch. Use it to tag, categorize, or just add a little flair. Think of it as a sticker for your UI.'
     >
       <DocSection title='Installation'>
-        <Code code='npx shadcn@latest add cartuni/badge' />
+        <Code code='npx shadcn@latest add @cartuni/badge' />
       </DocSection>
 
       <DocSection title='Usage'>

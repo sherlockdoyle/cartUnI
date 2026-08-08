@@ -11,7 +11,7 @@ export default function ButtonDocs() {
       description='The trusty button - click it, smash it, hover over it and watch it squish. Comes in multiple sizes and every variant flavor you could want.'
     >
       <DocSection title='Installation'>
-        <Code code='npx shadcn@latest add cartuni/button' />
+        <Code code='npx shadcn@latest add @cartuni/button' />
       </DocSection>
 
       <DocSection title='Usage'>

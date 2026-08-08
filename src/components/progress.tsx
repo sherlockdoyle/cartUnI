@@ -10,7 +10,7 @@ export default function ProgressDocs() {
       description="A progress bar that shows how far along a task is. Uses the native <progress> element, so it's accessible and semantic right out of the box."
     >
       <DocSection title='Installation'>
-        <Code code='npx shadcn@latest add cartuni/progress' />
+        <Code code='npx shadcn@latest add @cartuni/progress' />
       </DocSection>
 
       <DocSection title='Usage'>

@@ -10,7 +10,7 @@ export default function Accordion() {
       description='A collapsible content panel - like a drawer, but vertical and way more fun. Built on the native <details> element, so it works even if JavaScript took a vacation.'
     >
       <DocSection title='Installation'>
-        <Code code='npx shadcn@latest add cartuni/accordion' />
+        <Code code='npx shadcn@latest add @cartuni/accordion' />
       </DocSection>
 
       <DocSection title='Usage'>

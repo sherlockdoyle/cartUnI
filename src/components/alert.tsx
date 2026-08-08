@@ -11,7 +11,7 @@ export default function AlertDocs() {
       description='A little box that screams (or whispers) important info at your users. Comes in six flavors of urgency, from chill to OH NO.'
     >
       <DocSection title='Installation'>
-        <Code code='npx shadcn@latest add cartuni/alert' />
+        <Code code='npx shadcn@latest add @cartuni/alert' />
       </DocSection>
 
       <DocSection title='Usage'>

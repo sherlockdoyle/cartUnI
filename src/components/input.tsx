@@ -10,7 +10,7 @@ export default function InputDocs() {
       description='A whole family of form controls - text inputs, textareas, selects, checkboxes, radios, switches, and sliders. Everything you need to collect data from your users (with style).'
     >
       <DocSection title='Installation'>
-        <Code code='npx shadcn@latest add cartuni/input' />
+        <Code code='npx shadcn@latest add @cartuni/input' />
       </DocSection>
 
       <DocSection title='Text Input'>

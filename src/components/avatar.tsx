@@ -10,7 +10,7 @@ export default function AvatarDocs() {
       description="A little round (well, wonky-round) profile picture with a fallback. Perfect for showing who's who in your app."
     >
       <DocSection title='Installation'>
-        <Code code='npx shadcn@latest add cartuni/avatar' />
+        <Code code='npx shadcn@latest add @cartuni/avatar' />
       </DocSection>
 
       <DocSection title='Usage'>

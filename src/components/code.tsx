@@ -9,7 +9,7 @@ export default function CodeDocs() {
       description="Syntax-highlighted code blocks with a copy button, powered by sugar-high. Comes in block and inline flavors - because sometimes you need a whole code fence, and sometimes you just need a lil' snippet."
     >
       <DocSection title='Installation'>
-        <Code code='npx shadcn@latest add cartuni/code' />
+        <Code code='npx shadcn@latest add @cartuni/code' />
         <P>
           This component uses{' '}
           <A href='https://github.com/huozhi/sugar-high' rel='noreferrer' target='_blank'>
