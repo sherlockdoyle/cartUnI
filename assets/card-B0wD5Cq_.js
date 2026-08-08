@@ -1,0 +1,15 @@
+import{F as e,M as t,_ as n,et as r,g as i,h as a,i as o,m as s,n as c,ot as l,p as u,r as d,t as f,v as p}from"./doc-page-DrpX4VML.js";var m=l();function h(){return(0,m.jsxs)(c,{title:`Card`,description:`A chunky, bordered container for grouping related content. Think of it as a friendly box that gives your content a hug.`,children:[(0,m.jsx)(d,{title:`Installation`,children:(0,m.jsx)(e,{code:`npx shadcn@latest add @cartuni/card`})}),(0,m.jsxs)(d,{title:`Usage`,children:[(0,m.jsxs)(t,{children:[`Cards are composed of sub-components: `,(0,m.jsx)(e,{code:`CardHeader`,inline:!0}),`, `,(0,m.jsx)(e,{code:`CardTitle`,inline:!0}),`,`,` `,(0,m.jsx)(e,{code:`CardDescription`,inline:!0}),`, `,(0,m.jsx)(e,{code:`CardContent`,inline:!0}),`, and`,` `,(0,m.jsx)(e,{code:`CardFooter`,inline:!0}),`. Mix and match as you please - there are no rules here (okay, maybe a few).`]}),(0,m.jsx)(f,{children:(0,m.jsxs)(u,{children:[(0,m.jsxs)(n,{children:[(0,m.jsx)(p,{children:`Adopt a Component`}),(0,m.jsx)(a,{children:`Give a lonely UI widget a loving home.`})]}),(0,m.jsx)(s,{children:`These little components have been sitting in a GitHub repo for months. They just need someone to import them, give some nice content, and use them occasionally. Can you provide that?`}),(0,m.jsxs)(i,{children:[(0,m.jsx)(r,{variant:`secondary`,children:`Maybe later`}),(0,m.jsx)(r,{children:`Adopt Now!`})]})]})}),(0,m.jsx)(e,{code:`import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/ui/card/card';
+
+<Card>
+  <CardHeader>
+    <CardTitle>Adopt a Component</CardTitle>
+    <CardDescription>Give a lonely UI widget a loving home.</CardDescription>
+  </CardHeader>
+  <CardContent>
+    This little button just needs someone to click it occasionally.
+  </CardContent>
+  <CardFooter>
+    <Button variant="secondary">Maybe later</Button>
+    <Button>Adopt Now!</Button>
+  </CardFooter>
+</Card>`})]}),(0,m.jsxs)(d,{title:`With Patterns`,children:[(0,m.jsx)(t,{children:`Cards really shine with background patterns. Great for feature sections, callouts, or just showing off.`}),(0,m.jsxs)(f,{children:[(0,m.jsxs)(u,{pattern:`hachure`,children:[(0,m.jsx)(n,{children:(0,m.jsx)(p,{children:`Hachure`})}),(0,m.jsx)(s,{children:`Looks like someone sketched this on a napkin at 2am. Relatable.`})]}),(0,m.jsxs)(u,{pattern:`dots`,children:[(0,m.jsx)(n,{children:(0,m.jsx)(p,{children:`Dots`})}),(0,m.jsx)(s,{children:`Polka dot energy. Very retro. Very chic. Very dots.`})]})]})]}),(0,m.jsxs)(d,{title:`API Reference`,children:[(0,m.jsxs)(t,{children:[`The `,(0,m.jsx)(e,{code:`Card`,inline:!0}),` component is the main container. The sub-components are layout helpers for consistent spacing.`]}),(0,m.jsx)(o,{items:[{name:`as`,type:`ElementType`,default:`'article'`,description:`Polymorphic root element for Card.`}]})]})]})}export{h as default};

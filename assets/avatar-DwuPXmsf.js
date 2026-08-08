@@ -1,0 +1,10 @@
+import{F as e,M as t,at as n,ct as r,i,it as a,n as o,nt as s,ot as c,r as l,rt as u,t as d}from"./doc-page-DrpX4VML.js";var f=r(n(),1),p={avatar:`WjIPv`,img:`KG4LH`,fallback:`i-nWZ`},m=c(),h=`${u.base} ${p.avatar}`;function g({as:e,src:t,fallback:n,style:r,...i}){let o=e??`span`,c=a(!0),[l,u]=(0,f.useState)(!1);return(0,m.jsx)(o,{style:{...c,...r},...s(i,h),children:t&&!l?(0,m.jsx)(`img`,{className:p.img,src:t,alt:typeof n==`string`?n:`Avatar`,onError:()=>u(!0)}):n&&(0,m.jsx)(`span`,{className:p.fallback,children:n})})}function _(){return(0,m.jsxs)(o,{title:`Avatar`,description:`A little round (well, wonky-round) profile picture with a fallback. Perfect for showing who's who in your app.`,children:[(0,m.jsx)(l,{title:`Installation`,children:(0,m.jsx)(e,{code:`npx shadcn@latest add @cartuni/avatar`})}),(0,m.jsxs)(l,{title:`Usage`,children:[(0,m.jsxs)(t,{children:[`The `,(0,m.jsx)(e,{code:`Avatar`,inline:!0}),` component shows an image, and gracefully falls back to initials (or whatever you want) if the image fails to load. The border-radius is randomized, so each avatar gets its own unique blobby shape.`]}),(0,m.jsxs)(d,{children:[(0,m.jsx)(g,{src:`https://api.dicebear.com/9.x/adventurer/svg?seed=this_url_is_the_flag`,fallback:`AB`}),(0,m.jsx)(g,{src:`https://api.dicebear.com/9.x/adventurer/svg?seed=the_whole_url_above_except_the_invalid_characters`,fallback:`ZY`}),(0,m.jsx)(g,{fallback:`SD`}),(0,m.jsx)(g,{src:`https://this-will-404.com/nope.png`,fallback:`??`})]}),(0,m.jsx)(e,{code:`import { Avatar } from '@/ui/avatar/avatar';
+
+// With image
+<Avatar src="https://example.com/photo.jpg" fallback="SD" />
+
+// Fallback only
+<Avatar fallback="TN" />
+
+// Image that fails -> shows fallback
+<Avatar src="https://broken.link" fallback="??" />`})]}),(0,m.jsx)(l,{title:`API Reference`,children:(0,m.jsx)(i,{items:[{name:`src`,type:`string`,description:`URL of the avatar image.`},{name:`fallback`,type:`ReactNode`,description:`Shown when image fails to load or src isn't provided. Usually initials.`},{name:`as`,type:`ElementType`,default:`'span'`,description:`Polymorphic root element.`}]})})]})}export{_ as default};
